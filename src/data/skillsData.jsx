@@ -23,6 +23,8 @@ const skillsData = [
         skills: [
           { name: "Node.js", icon: "bx bxl-nodejs", level: "Intermediate" },
           { name: "Express.js", icon: "bx bx-code-alt", level: "Intermediate" },
+          { name: "REST API", icon: "bx bx-link-external", level: "Intermediate" },
+
         ],
       },
       {
@@ -43,7 +45,6 @@ const skillsData = [
           { name: "CI/CD Basics", icon: "bx bx-git-branch", level: "Basic" },
           { name: "Git", icon: "bx bxl-git", level: "Intermediate" },
           { name: "Figma", icon: "bx bxl-figma", level: "Basic" },
-          { name: "REST API", icon: "bx bx-link-external", level: "Intermediate" },
         ],
       },
     ],
@@ -54,15 +55,48 @@ const skillsData = [
       {
         category: "Soft Skills",
         skills: [
-          { name: "Problem solving", icon: "bx bx-bulb", description: "Khả năng phân tích và giải quyết vấn đề hiệu quả." },
-          { name: "Self-learning", icon: "bx bx-book-open", description: "Chủ động học hỏi, cập nhật kiến thức mới liên tục." },
-          { name: "Teamwork", icon: "bx bx-group", description: "Hợp tác, phối hợp tốt với các thành viên trong nhóm." },
-          { name: "Research", icon: "bx bx-search", description: "Tìm kiếm, khai thác và ứng dụng thông tin mới vào công việc." },
-          { name: "Communication", icon: "bx bx-conversation", description: "Truyền đạt ý tưởng, lắng nghe và phản hồi hiệu quả." },
-          { name: "Adaptability", icon: "bx bx-refresh", description: "Linh hoạt thích nghi với môi trường và thay đổi mới." },
-          { name: "Time management", icon: "bx bx-time", description: "Sắp xếp, ưu tiên công việc hợp lý để đạt hiệu quả cao." },
-          { name: "Critical thinking", icon: "bx bx-brain", description: "Tư duy phản biện, đánh giá vấn đề đa chiều." },
+          {
+            name: "Problem Solving",
+            icon: "bx bx-bulb",
+            description: "Able to break down complex software issues, debug efficiently, and develop logical, maintainable solutions."
+          },
+          {
+            name: "Self-Learning",
+            icon: "bx bx-book-open",
+            description: "Proactively explores new technologies, frameworks, and best practices to improve development quality and productivity."
+          },
+          {
+            name: "Teamwork",
+            icon: "bx bx-group",
+            description: "Collaborates effectively in Agile/Scrum teams, participates in code reviews, and supports teammates to achieve common goals."
+          },
+          {
+            name: "Technical Research",
+            icon: "bx bx-search",
+            description: "Capable of evaluating technical documentation, comparing libraries/tools, and applying the most suitable ones to project requirements."
+          },
+          {
+            name: "Communication",
+            icon: "bx bx-conversation",
+            description: "Clearly communicates technical ideas, writes understandable documentation, and actively participates in discussions with both dev and non-dev stakeholders."
+          },
+          {
+            name: "Adaptability",
+            icon: "bx bx-refresh",
+            description: "Comfortable switching between stacks, tools, and tasks based on project needs while maintaining focus and effectiveness."
+          },
+          {
+            name: "Time Management",
+            icon: "bx bx-time",
+            description: "Manages development tasks with clear priorities, estimates effort realistically, and consistently meets sprint or delivery deadlines."
+          },
+          {
+            name: "Critical Thinking",
+            icon: "bx bx-brain",
+            description: "Evaluates requirements and trade-offs thoroughly to design solutions that are both technically sound and aligned with business needs."
+          },
         ],
+        
       },
     ],
   },

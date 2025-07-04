@@ -9,7 +9,7 @@ const Projects = () => {
             data-aos-duration="1000"
         >
             <div className="max-w-5xl mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">Projects</h2>
+                <h2 className="text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">My Personal Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projectsData.map((project, idx) => (
                         <div key={project.name} className="bg-gray-50 dark:bg-gray-900 rounded-xl shadow-lg p-6 flex flex-col" data-aos="fade-up" data-aos-delay={idx * 100}>

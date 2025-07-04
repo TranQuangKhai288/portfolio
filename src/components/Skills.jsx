@@ -26,15 +26,15 @@ const Skills = () => {
                                     row.map((skill, colIdx) => (
                                         <div
                                         key={skill.name}
-                                        className="inline-flex flex-col items-start gap-1 px-4 py-2 mb-2 rounded-2xl bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 font-medium text-base shadow-sm transition-transform duration-200 hover:scale-105 hover:shadow-lg cursor-pointer"
+                                        className="flex flex-row items-center gap-4 px-4 py-3 mb-2 rounded-2xl bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 font-medium text-base shadow-sm transition-transform duration-200 hover:scale-105 hover:shadow-lg cursor-pointer"
                                         data-aos="fade-up"
                                         data-aos-delay={rowIdx * 100}
                                         >
-                                        <span className="flex items-center gap-2">
-                                            <i className={`${skill.icon} text-lg`} aria-hidden="true"></i>
-                                            {skill.name}
-                                        </span>
-                                        <span className="text-xs text-gray-600 dark:text-gray-300 pl-7 leading-snug">{skill.description}</span>
+                                        <i className={`${skill.icon} text-3xl flex-shrink-0`} aria-hidden="true"></i>
+                                        <div className="flex flex-col">
+                                            <span className="font-semibold text-base">{skill.name}</span>
+                                            <span className="text-xs text-gray-600 dark:text-gray-300 leading-snug">{skill.description}</span>
+                                        </div>
                                         </div>
                                     ))
                                 ))}
