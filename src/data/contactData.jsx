@@ -23,13 +23,13 @@ const contactData = {
     socials: [
         {
             label: "GitHub",
-            href: "https://github.com/hizkia178",
+            href: "https://github.com/TranQuangKhai288",
             icon: "bx bxl-github",
             description: "Explore my code & projects",
         },
         {
             label: "LinkedIn",
-            href: "https://www.linkedin.com/in/hizkia-siahaan-59b003280/",
+            href: "https://www.linkedin.com/in/khải-trần-quang-3555a0300",
             icon: "bx bxl-linkedin-square",
             description: "Let’s connect professionally",
         },

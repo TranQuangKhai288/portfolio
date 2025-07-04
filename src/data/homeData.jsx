@@ -1,5 +1,5 @@
 const homeData = {
-  title: "Hi, I’m Khai Tran 👋",
+  title: "Hi, I'm Khai Tran 👋",
   typingTexts: [
     "Software Developer",
     "Fullstack Problem Solver",
@@ -18,7 +18,7 @@ const homeData = {
     },
     {
       label: "Download My CV",
-      href: "#",
+      href: "/assets/SoftwareDeveloper-TranQuangKhai-Resume.pdf",
       type: "secondary",
     },
   ],
@@ -32,12 +32,12 @@ const homeData = {
     {
       platform: "GitHub",
       icon: "bx bxl-github",
-      href: "https://github.com/Hizkia178",
+      href: "https://github.com/TranQuangKhai288",
     },
     {
       platform: "LinkedIn",
       icon: "bx bxl-linkedin-square",
-      href: "https://www.linkedin.com/in/hizkia-siahaan-59b003280/",
+      href: "https://www.linkedin.com/in/khải-trần-quang-3555a0300",
     },
     {
       platform: "Instagram",

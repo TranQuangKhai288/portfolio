@@ -27,12 +27,12 @@ const footerData = {
         {
             label: "GitHub",
             icon: "bx bxl-github",
-            href: "https://github.com/Hizkia178",
+            href: "https://github.com/TranQuangKhai288",
         },
         {
             label: "LinkedIn",
             icon: "bx bxl-linkedin-square",
-            href: "https://www.linkedin.com/in/hizkia-siahaan-59b003280/",
+            href: "https://www.linkedin.com/in/khải-trần-quang-3555a0300/",
         },
         {
             label: "Instagram",
@@ -55,7 +55,7 @@ const footerData = {
         buttonText: "Subscribe",
     },
 
-    copyright: "© 2025 Hizkia Siahaan. All rights reserved.",
+    copyright: "© 2025 Tran Quang Khai. All rights reserved.",
 };
 
 export default footerData;
