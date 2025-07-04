@@ -128,7 +128,7 @@ const Home = () => {
                           ? "bg-gray-800 dark:bg-white text-white dark:text-gray-800 hover:bg-gray-800 dark:hover:bg-gray-100"
                           : "border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800"
                       }`}
-                      target={btn.href.startsWith("http") ? "_blank" : "_self"}
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
                       <i

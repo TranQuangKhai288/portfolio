@@ -4,7 +4,7 @@ const homeData = {
     "Software Developer",
     "Fullstack Problem Solver",
     "React & Node Enthusiast",
-    "Mobile & Web Hacker",
+    "Mobile & Web Developer",
   ],
   description:
     "I enjoy building things that work — from responsive websites to mobile apps, from sleek frontends to solid backends. My tools include React, Node.js, and a mindset to always learn, improve, and ship high-quality code.",

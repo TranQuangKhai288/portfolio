@@ -4,6 +4,9 @@ import About from './components/About';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Contact from './components/Contact';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Experience from './components/Experience';
 // import Testimonials from './components/Testimonial';
 function App() {
 
@@ -12,6 +15,9 @@ function App() {
       <Navbar />
       <Home />
       <About />
+      <Skills />
+      <Projects />
+      <Experience />
       {/* <Testimonials /> */}
       <Contact />
       <Footer />
