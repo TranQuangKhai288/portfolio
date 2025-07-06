@@ -27,7 +27,7 @@ const Skills = () => {
                                         <div
                                         key={skill.name}
                                         className="flex flex-row items-center gap-4 px-4 py-3 mb-2 rounded-2xl bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 font-medium text-base shadow-sm transition-transform duration-200 hover:scale-105 hover:shadow-lg cursor-pointer"
-                                        data-aos="fade-up"
+                                     
                                         data-aos-delay={rowIdx * 100}
                                         >
                                         <i className={`${skill.icon} text-3xl flex-shrink-0`} aria-hidden="true"></i>

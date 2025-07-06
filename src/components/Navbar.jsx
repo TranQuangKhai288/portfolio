@@ -93,7 +93,7 @@ const Navbar = () => {
               <a href="#" className="flex items-center gap-2">
                 <i className="bx bx-code-alt text-2xl text-gray-800 dark:text-white"></i>
                 <h1 className="text-2xl font-semibold text-gray-800 dark:text-white">
-                  My Portofolio
+                  Khai Tran's Portfolio
                 </h1>
               </a>
 
