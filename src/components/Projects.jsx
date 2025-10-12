@@ -1,6 +1,9 @@
 import projectsData from "../data/projectsData.jsx";
+import { useGallery } from "../contexts/GalleryContext";
 
 const Projects = () => {
+  const { openGallery } = useGallery();
+
   return (
     <section
       id="projects"
@@ -20,7 +23,6 @@ const Projects = () => {
               //   data-aos="fade-up"
               data-aos-delay={idx * 100}
             >
-              {" "}
               {/* Project Image/Placeholder */}
               <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden">
                 <img
@@ -68,15 +70,16 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={() =>
+                      openGallery(project.demoImages || [project.image])
+                    }
                     className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-center shadow-md hover:shadow-lg transform hover:scale-105"
                   >
                     <i className="bx bx-link-external mr-2"></i>
-                    Live Demo
-                  </a>
+                    Demo UI
+                  </button>
                   <a
                     href={project.github}
                     target="_blank"
@@ -91,6 +94,9 @@ const Projects = () => {
             </div>
           ))}
         </div>
+        <h3 className="mt-8 text-2xl font-bold text-center text-gray-800 dark:text-white cursor-pointer hover:underline">
+          See more
+        </h3>
       </div>
     </section>
   );
