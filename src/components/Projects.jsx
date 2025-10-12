@@ -23,13 +23,20 @@ const Projects = () => {
               {" "}
               {/* Project Image/Placeholder */}
               <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden">
-                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <i
-                    className={`${project.icon} text-6xl text-white opacity-80`}
-                    aria-hidden="true"
-                  ></i>
-                </div>
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover object-center"
+                />
+                {!project.image && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <i
+                      className={`${project.icon} text-6xl text-white opacity-80`}
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                )}
                 {/* Decorative elements */}
                 <div className="absolute top-4 right-4 w-16 h-16 bg-white bg-opacity-20 rounded-full"></div>
                 <div className="absolute bottom-8 right-8 w-8 h-8 bg-white bg-opacity-30 rounded-full"></div>
