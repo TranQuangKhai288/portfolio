@@ -17,7 +17,7 @@ const Navbar = () => {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 },
     );
 
     navbarData.forEach((item) => {
@@ -87,8 +87,8 @@ const Navbar = () => {
         data-aos-duration="1000"
         data-aos="fade-down"
       >
-        <div className="container">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container flex items-center justify-between mx-auto ">
+          <div className="w-full max-w-7xl mx-auto ">
             <div className="flex items-center justify-between py-4">
               <a href="#" className="flex items-center gap-2">
                 <i className="bx bx-code-alt text-2xl text-gray-800 dark:text-white"></i>
