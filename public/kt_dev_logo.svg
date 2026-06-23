@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Navy background, fills entire viewBox -->
+  <rect width="100" height="100" rx="22" fill="#1B2B5E"/>
+
+  <!-- Letter K - vertical bar -->
+  <rect x="12" y="18" width="11" height="64" fill="#FFFFFF"/>
+  <!-- K upper arm -->
+  <polygon points="23,18 42,18 42,26 31,50 23,50" fill="#FFFFFF"/>
+  <!-- K lower arm -->
+  <polygon points="23,50 31,50 46,76 46,82 36,82 23,64" fill="#FFFFFF"/>
+
+  <!-- Letter T - cyan top crossbar -->
+  <rect x="52" y="18" width="38" height="9" rx="1.5" fill="#00AAFF"/>
+  <!-- T right vertical stem -->
+  <rect x="81" y="18" width="9" height="64" fill="#FFFFFF"/>
+  <!-- T left bracket top -->
+  <rect x="52" y="18" width="7" height="16" fill="#FFFFFF"/>
+  <!-- T left bracket bottom -->
+  <rect x="52" y="73" width="7" height="9" fill="#FFFFFF"/>
+  <!-- T bottom bar - outlined cyan -->
+  <rect x="52" y="73" width="38" height="9" rx="1.5" fill="none" stroke="#00AAFF" stroke-width="2.5"/>
+</svg>

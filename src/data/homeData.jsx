@@ -18,7 +18,7 @@ const homeData = {
     },
     {
       label: "Let's See My CV",
-      href: "/assets/SoftwareDeveloper-TranQuangKhai-Resume.pdf",
+      href: "/assets/TranQuangKhai-CV.html",
       type: "secondary",
     },
   ],

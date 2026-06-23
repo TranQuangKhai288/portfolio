@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tran Quang Khai – Software Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1a1a2e;
+        --accent: #0f4c81;
+        --accent2: #c0392b;
+        --muted: #6b7280;
+        --border: #e2e5ea;
+        --bg: #ffffff;
+        --tag-bg: #edf2f7;
+        --tag-color: #0f4c81;
+        --page-width: 794px;
+        --page-height: 1123px;
+        --page-padding-x: 44px;
+        --page-padding-y: 24px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #e8ecf0;
+        color: var(--ink);
+        font-size: 14.5px;
+        line-height: 1.42;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: var(--page-width);
+        height: var(--page-height);
+        margin: 20px auto;
+        background: var(--bg);
+        padding: var(--page-padding-y) var(--page-padding-x);
+        box-shadow:
+          0 2px 24px rgba(0, 0, 0, 0.08),
+          0 0 0 1px rgba(0, 0, 0, 0.04);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page + .page {
+        margin-top: 24px;
+      }
+
+      /* ── HEADER ── */
+      .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2px;
+        align-items: start;
+        padding-bottom: 5px;
+        border-bottom: 2px solid var(--accent);
+        margin-bottom: 6px;
+      }
+
+      .name {
+        font-size: 29px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: var(--ink);
+        line-height: 1.1;
+      }
+
+      .title {
+        font-size: 14.5px;
+        font-weight: 500;
+        color: var(--accent);
+        margin-top: 2px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .contacts {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px 14px;
+        font-size: 12.8px;
+        color: var(--muted);
+      }
+
+      .contacts a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .contacts a:hover {
+        color: var(--accent);
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .contact-item svg {
+        flex-shrink: 0;
+        width: 12.8px;
+        height: 12.8px;
+      }
+
+      /* ── SUMMARY ── */
+      .summary {
+        font-size: 14px;
+        color: #374151;
+        line-height: 1.42;
+        margin-bottom: 8px;
+        padding: 5px 11px;
+        border-left: 3px solid var(--accent2);
+        background: linear-gradient(90deg, #fdf8f8, transparent);
+        border-radius: 0 4px 4px 0;
+      }
+
+      /* ── SECTION ── */
+      .section {
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        font-size: 15.5px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ── EXPERIENCE ── */
+      .job {
+        margin-bottom: 6px;
+      }
+      .job:last-child {
+        margin-bottom: 0;
+      }
+
+      .job-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: baseline;
+        margin-bottom: 1px;
+      }
+
+      .job-title {
+        font-size: 14.5px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .job-period {
+        font-family: "DM Mono", monospace;
+        font-size: 11.5px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .job-company {
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--accent);
+        margin-bottom: 2px;
+      }
+
+      .project-label {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-top: 3px;
+        margin-bottom: 1px;
+      }
+
+      .project-desc {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 2px;
+        font-style: italic;
+        line-height: 1.38;
+      }
+
+      .bullets {
+        list-style: none;
+        padding: 0;
+      }
+
+      .bullets li {
+        font-size: 13.5px;
+        color: #374151;
+        padding-left: 12px;
+        position: relative;
+        margin-bottom: 1.5px;
+        line-height: 1.4;
+      }
+
+      .bullets li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent2);
+        font-size: 10.5px;
+        top: 2px;
+      }
+
+      .bullets li strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      /* ── SKILLS ── */
+      .skill-label {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 4px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .tag {
+        font-size: 11.5px;
+        background: #f8fafc;
+        color: #334155;
+        border: 1px solid #e2e8f0;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      /* ── EDUCATION ── */
+      .edu-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: baseline;
+      }
+
+      .edu-degree {
+        font-weight: 700;
+        font-size: 14.5px;
+      }
+      .edu-school {
+        font-size: 13.5px;
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .edu-period {
+        font-family: "DM Mono", monospace;
+        font-size: 11.5px;
+        color: var(--muted);
+      }
+
+      /* ── SOFT SKILLS ── */
+      .soft-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .soft-tag {
+        font-size: 11.5px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        color: #334155;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      /* ── TWO COLUMN LAYOUT ── */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        gap: 28px;
+      }
+
+      /* ── SIDEBAR (RIGHT COLUMN) ── */
+      .sidebar-section {
+        margin-bottom: 6px;
+      }
+      .sidebar-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .skill-group {
+        margin-bottom: 3px;
+      }
+      .skill-group:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ── PROJECT LINKS ── */
+      .project-links {
+        margin-top: 3px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .project-links a {
+        font-size: 12.5px;
+        color: var(--accent);
+        text-decoration: none;
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+      }
+
+      .project-links a:hover {
+        text-decoration: underline;
+      }
+      .project-links a.demo {
+        color: var(--accent2);
+      }
+
+      /* ── PAGE 2 HEADER ── */
+      .page2-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 14px;
+      }
+
+      .page2-header .page2-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .page2-header .page2-title {
+        font-size: 12px;
+        color: var(--muted);
+        font-family: "DM Mono", monospace;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      /* ── PAGE NUMBER ── */
+      .page-number {
+        position: absolute;
+        bottom: 14px;
+        right: var(--page-padding-x);
+        font-size: 11px;
+        font-family: "DM Mono", monospace;
+        color: #b0b8c4;
+        letter-spacing: 0.5px;
+      }
+
+      /* ── PRINT ── */
+      @media print {
+        body {
+          background: white;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          page-break-after: always;
+          page-break-inside: avoid;
+        }
+        .page:last-child {
+          page-break-after: auto;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════ PAGE 1 ═══════════════════ -->
+    <div class="page">
+      <!-- HEADER -->
+      <div class="header">
+        <div>
+          <div class="name">Tran Quang Khai</div>
+          <div class="title">Software Developer · Fullstack Developer</div>
+        </div>
+        <div class="contacts">
+          <div class="contact-item">
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.38a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"
+              />
+            </svg>
+            +84 389 346 149
+          </div>
+          <div class="contact-item">
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,12 2,6" />
+            </svg>
+            <a href="mailto:dev.khaitran@gmail.com">dev.khaitran@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            <a href="https://github.com/TranQuangKhai288"
+              >github.com/TranQuangKhai288</a
+            >
+          </div>
+          <div class="contact-item">
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            <a href="https://www.linkedin.com/in/khai-tran-quang-919586400/"
+              >linkedin.com/in/khai-tran-quang</a
+            >
+          </div>
+          <div class="contact-item">
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path
+                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              />
+              <line x1="2" y1="12" x2="22" y2="12" />
+            </svg>
+            <a href="https://www.khai-tran-software-engineer.id.vn/"
+              >Khai-Tran.Portfolio</a
+            >
+          </div>
+          <div class="contact-item">
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Thu Duc City, Ho Chi Minh City
+          </div>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <p class="summary">
+        Full-stack Software Developer with
+        <strong>1.5+ years of hands-on experience</strong> building scalable web
+        and mobile applications. Specializes in
+        <strong>React, TypeScript, and Next.js</strong> with a track record in
+        performance optimization, API lifecycle integration, and cross-platform
+        development. Strong backend exposure via Node.js enables end-to-end
+        ownership from API design to polished UI delivery.
+      </p>
+
+      <div class="two-col">
+        <!-- LEFT COLUMN: EXPERIENCE -->
+        <div>
+          <div class="section">
+            <div class="section-title">Professional Experience</div>
+
+            <!-- Tripdata -->
+            <div class="job">
+              <div class="job-header">
+                <div class="job-title">Front-end Developer</div>
+                <div class="job-period">Jun 2025 – Present</div>
+              </div>
+              <div class="job-company">
+                Tripdata Vietnam · B2B TravelTech Platform
+              </div>
+              <div class="project-label">Travel Booking Portal</div>
+              <div class="project-desc">
+                Multi-service booking platform (Flights, Hotels) for travel
+                agencies — React JS + TypeScript + Vite + Zustand · ASP.NET + C#
+              </div>
+              <ul class="bullets">
+                <li>
+                  <strong>Performance:</strong> Optimized API consumption using
+                  React Query and Zustand to cache responses, manage parallel
+                  queries, and cancel obsolete requests, eliminating redundant
+                  calls.
+                </li>
+                <li>
+                  <strong>UI Modernization:</strong> Spearheaded Bootstrap to
+                  Tailwind CSS migration, improving codebase maintainability and
+                  page load performance across all main views.
+                </li>
+                <li>
+                  <strong>Full-stack Collaboration:</strong> Partnered with
+                  backend engineers to implement passenger data processing
+                  workflows, ensuring seamless state synchronization and zero
+                  data loss.
+                </li>
+              </ul>
+            </div>
+
+            <!-- JDI -->
+            <div class="job">
+              <div class="job-header">
+                <div class="job-title">
+                  Software Developer (Intern & Contractor)
+                </div>
+                <div class="job-period">Jun 2024 – Dec 2024</div>
+              </div>
+              <div class="job-company">
+                Tech JDI Vietnam · JDI Group (Singapore)
+              </div>
+
+              <div class="project-label">
+                AI Knowledge Base – Internal AI Chatbot
+              </div>
+              <div class="project-desc">
+                LLM-powered chatbot for internal knowledge retrieval — Refine +
+                TypeScript + Ant Design · Node.js + FastAPI + MongoDB
+              </div>
+              <ul class="bullets">
+                <li>
+                  <strong>Architecture:</strong> Designed initial codebase using
+                  Clean Architecture principles, enabling a 6-member team to
+                  develop features concurrently with minimal conflicts.
+                </li>
+                <li>
+                  <strong>Backend:</strong> Built core RESTful APIs with secure
+                  token-based authentication and optimized query execution paths
+                  for real-time AI interactions.
+                </li>
+                <li>
+                  <strong>AI Integration:</strong> Integrated LLM modules to
+                  automate policy queries, optimizing search queries on embedded
+                  vector data to deliver instant RAG-based answers.
+                </li>
+              </ul>
+
+              <div class="project-label">
+                Wealth Advisor – HR Management Platform
+              </div>
+              <div class="project-desc">
+                Role-based, multi-level HR platform with permission delegation
+                and task assignment — Refine + TypeScript + Ant Design
+              </div>
+              <ul class="bullets">
+                <li>
+                  <strong>Complex UI:</strong> Developed role-based admin
+                  dashboard with Refine & Ant Design, translating complex
+                  permission matrices into an intuitive, responsive management
+                  interface.
+                </li>
+                <li>
+                  <strong>Performance:</strong> Optimized rendering logic for
+                  large datasets, maintaining a smooth user experience under
+                  high data volume.
+                </li>
+                <li>
+                  <strong>QA:</strong> Collaborated closely with the QA team to
+                  resolve critical issues prior to UAT, ensuring a successful
+                  and stable client release.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div>
+          <!-- EDUCATION -->
+          <div class="sidebar-section">
+            <div class="section-title">Education</div>
+            <div>
+              <div class="edu-degree">B.Sc. Software Engineering</div>
+              <div class="edu-school">
+                University of Information Technology — VNU-HCM
+              </div>
+              <div class="edu-period">2021 – 2025</div>
+            </div>
+          </div>
+
+          <!-- TECHNICAL SKILLS -->
+          <div class="sidebar-section">
+            <div class="section-title">Technical Skills</div>
+
+            <div class="skill-group">
+              <div class="skill-label">Frontend</div>
+              <div class="tags">
+                <span class="tag">React JS</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">JavaScript ES6</span>
+                <span class="tag">React Native</span>
+                <span class="tag">Vite</span>
+                <span class="tag">Refine</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-label">UI / Styling</div>
+              <div class="tags">
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Ant Design</span>
+                <span class="tag">Bootstrap</span>
+                <span class="tag">CSS Modules</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-label">State Mgmt</div>
+              <div class="tags">
+                <span class="tag">Zustand</span>
+                <span class="tag">Redux Toolkit</span>
+                <span class="tag">Context API</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-label">Backend</div>
+              <div class="tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">RESTful API</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-label">Database</div>
+              <div class="tags">
+                <span class="tag">MongoDB</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Firebase</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-label">DevOps / Tools</div>
+              <div class="tags">
+                <span class="tag">Git / GitHub</span>
+                <span class="tag">Docker</span>
+                <span class="tag">CI/CD</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-label">AI / LLM</div>
+              <div class="tags">
+                <span class="tag">LLM Integration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-number">1 / 2</div>
+    </div>
+
+    <!-- ═══════════════════ PAGE 2 ═══════════════════ -->
+    <div class="page">
+      <!-- Page 2 mini-header -->
+      <div class="page2-header">
+        <div class="page2-name">Tran Quang Khai</div>
+        <div class="page2-title">Software Developer · Frontend Specialist</div>
+      </div>
+
+      <!-- PERSONAL PROJECTS -->
+      <div class="section">
+        <div class="section-title">Personal Projects</div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">[Project Name 1]</div>
+            <div class="job-period">[Month Year]</div>
+          </div>
+          <div class="project-desc">
+            [One-line description of what the project does and who it's for] —
+            [Tech stack: e.g. Next.js + TypeScript + Tailwind CSS · Node.js +
+            MongoDB]
+          </div>
+          <ul class="bullets">
+            <li>
+              <strong>[Key feature / tech highlight]:</strong> [What you built
+              and why it matters. Replace with a concrete outcome if possible.]
+            </li>
+            <li>
+              <strong>[Another highlight]:</strong> [e.g. AI integration,
+              performance win, architecture decision, etc.]
+            </li>
+          </ul>
+          <div class="project-links">
+            <a href="#">⬡ GitHub</a>
+            <a href="#" class="demo">↗ Live Demo</a>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">[Project Name 2]</div>
+            <div class="job-period">[Month Year]</div>
+          </div>
+          <div class="project-desc">[One-line description] — [Tech stack]</div>
+          <ul class="bullets">
+            <li>
+              <strong>[Key feature]:</strong> [Concrete impact or technical
+              decision worth highlighting.]
+            </li>
+            <li>
+              <strong>[Another highlight]:</strong> [Keep to 1–2 lines per
+              bullet for readability.]
+            </li>
+          </ul>
+          <div class="project-links">
+            <a href="#">⬡ GitHub</a>
+            <a href="#" class="demo">↗ Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-number">2 / 2</div>
+    </div>
+  </body>
+</html>
