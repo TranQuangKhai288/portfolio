@@ -12,7 +12,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className="min-h-screen bg-white dark:bg-gray-800 pt-20 overflow-hidden"
+            className="min-h-screen pt-20 overflow-hidden"
             data-aos="fade-down"
             data-aos-duration="1000"
         >
@@ -98,7 +98,7 @@ const About = () => {
                                 aria-label="Download Resume"
                                 data-aos-delay="600"
                                 data-aos="fade-down"
-                                download
+                                download="TranQuangKhai-CV.html"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

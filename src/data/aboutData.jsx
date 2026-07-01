@@ -15,7 +15,7 @@ const aboutData = {
 
     resume: {
         label: "Download My Resume",
-        href: "/assets/SoftwareDeveloper-TranQuangKhai-Resume.pdf",
+        href: "/assets/TranQuangKhai-CV.html",
         icon: "bx bx-download",
     },
 

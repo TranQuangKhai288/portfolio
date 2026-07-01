@@ -1,6 +1,6 @@
 const contactData = {
     title: "Contact Me",
-    subtitle: "Reach out via form, social media, or support platforms.",
+    subtitle: "Reach out via form, direct contact, or support platforms.",
 
     tabs: [
         {
@@ -34,25 +34,25 @@ const contactData = {
             description: "Let’s connect professionally",
         },
         {
-            label: "Instagram",
-            href: "#",
-            icon: "bx bxl-instagram",
-            description: "My visual journal & life updates",
+            label: "Email",
+            href: "mailto:dev.khaitran@gmail.com",
+            icon: "bx bx-envelope",
+            description: "dev.khaitran@gmail.com",
         },
         {
-            label: "Twitter",
-            href: "#",
-            icon: "bx bxl-twitter",
-            description: "Random thoughts & dev tweets",
+            label: "Phone",
+            href: "tel:+84389346149",
+            icon: "bx bx-phone",
+            description: "+84 389 346 149",
         },
     ],
 
     supportPlatforms: [
         {
-            label: "QRIS",
+            label: "Support My Journey",
             type: "image",
             imageSrc: "/assets/qris.jpg",
-            alt: "Scan to support via QRIS",
+            alt: "Scan to support",
         }
     ],
 

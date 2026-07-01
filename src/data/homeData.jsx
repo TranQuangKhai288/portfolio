@@ -12,8 +12,8 @@ const homeData = {
   img: "/assets/profile.jpg",
   buttons: [
     {
-      label: "Explore My Project",
-      href: "#",
+      label: "Explore My Projects",
+      href: "#projects",
       type: "primary",
     },
     {
@@ -39,16 +39,6 @@ const homeData = {
       icon: "bx bxl-linkedin-square",
       href: "https://www.linkedin.com/in/khải-trần-quang-3555a0300",
     },
-    {
-      platform: "Instagram",
-      icon: "bx bxl-instagram",
-      href: "#",
-    },
-    {
-      platform: "Twitter",
-      icon: "bx bxl-twitter",
-      href: "#",
-    },
   ],
   stats: [
     {
@@ -59,7 +49,7 @@ const homeData = {
     },
     {
       label: "Experience",
-      value: "1 Year",
+      value: "~2 Years",
       icon: "bx bx-briefcase text-blue-500",
     },
     {
@@ -67,10 +57,9 @@ const homeData = {
       value: "JavaScript",
       icon: "bx bxl-javascript text-amber-300",
     },
-
     {
       label: "Projects",
-      value: "3+ Completed",
+      value: "4+ Completed",
       icon: "bx bx-folder text-yellow-500",
     },
   ],
