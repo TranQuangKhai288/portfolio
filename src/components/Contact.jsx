@@ -33,7 +33,7 @@ const Contact = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim(),
           name: name.trim(),
           email: email.trim(),
           message: message.trim(),
@@ -68,10 +68,10 @@ const Contact = () => {
   };
 
   return (
-    <section 
-      id="contact" 
-      className="min-h-screen pt-24 pb-20 relative overflow-hidden bg-transparent" 
-      data-aos-duration="1000" 
+    <section
+      id="contact"
+      className="min-h-screen pt-24 pb-20 relative overflow-hidden bg-transparent"
+      data-aos-duration="1000"
       data-aos="fade-down"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -90,11 +90,10 @@ const Contact = () => {
             <button
               key={tab.value}
               onClick={() => setActiveTab(tab.value)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
-                activeTab === tab.value
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${activeTab === tab.value
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md shadow-blue-500/10 scale-105"
                   : "bg-white/60 dark:bg-slate-900/40 backdrop-blur-sm text-slate-655 dark:text-slate-400 border border-slate-200/50 dark:border-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-800/60"
-              }`}
+                }`}
             >
               <i className={tab.icon}></i>
               {tab.label}
