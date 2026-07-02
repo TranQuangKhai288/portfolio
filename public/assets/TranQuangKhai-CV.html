@@ -18,10 +18,10 @@
       --bg: #ffffff;
       --tag-bg: #f1f5f9;
       --tag-color: #334155;
-      --page-width: 794px;
-      --page-height: 1123px;
-      --page-padding-x: 44px;
-      --page-padding-y: 24px;
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-padding-x: 11.6mm;
+      --page-padding-y: 6.35mm;
     }
 
     * {
@@ -393,19 +393,30 @@
 
     /* ── PRINT ── */
     @media print {
+      :root {
+        --page-height: 296mm;
+      }
+
+      html,
       body {
         background: white;
+        width: 210mm;
+        margin: 0;
       }
 
       .page {
+        width: 210mm;
+        height: var(--page-height);
         margin: 0;
         box-shadow: none;
-        page-break-after: always;
-        page-break-inside: avoid;
+        break-after: auto;
+        page-break-after: auto;
       }
 
-      .page:last-child {
-        page-break-after: auto;
+      .page+.page {
+        margin-top: 0;
+        break-before: page;
+        page-break-before: always;
       }
     }
 
