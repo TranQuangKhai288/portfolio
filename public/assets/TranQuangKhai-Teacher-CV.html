@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tran Quang Khai – IT Instructor & Software Developer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f172a;
+      --accent: #2563eb;
+      --accent2: #10b981;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --tag-bg: #f1f5f9;
+      --tag-color: #334155;
+      --page-width: 794px;
+      --page-height: 1123px;
+      --page-padding-x: 44px;
+      --page-padding-y: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f1f5f9;
+      color: var(--ink);
+      font-size: 14.5px;
+      line-height: 1.42;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 20px auto;
+      background: var(--bg);
+      padding: var(--page-padding-y) var(--page-padding-x);
+      box-shadow:
+        0 2px 24px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(0, 0, 0, 0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page+.page {
+      margin-top: 24px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2px;
+      align-items: start;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px 14px;
+      font-size: 12.8px;
+      color: var(--muted);
+    }
+
+    .contacts a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .contacts a:hover {
+      color: var(--accent);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .contact-item svg {
+      flex-shrink: 0;
+      width: 12.8px;
+      height: 12.8px;
+    }
+
+    /* ── SUMMARY ── */
+    .summary {
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.45;
+      margin-bottom: 8px;
+      padding: 6px 12px;
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, rgba(37, 99, 235, 0.04), transparent);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), rgba(226, 232, 240, 0));
+    }
+
+    /* ── EXPERIENCE ── */
+    .job {
+      margin-bottom: 6px;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .job-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .job-period {
+      font-family: "DM Mono", monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .project-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 2px;
+      margin-bottom: 1px;
+    }
+
+    .project-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 2px;
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    .bullets {
+      list-style: none;
+      padding: 0;
+      margin-top: 3px;
+    }
+
+    .bullets li {
+      font-size: 13px;
+      color: #374151;
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 1.5px;
+      line-height: 1.38;
+    }
+
+    .bullets li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-weight: bold;
+      font-size: 12px;
+      top: 0px;
+    }
+
+    .bullets li strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ── SKILLS ── */
+    .skill-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tag {
+      font-size: 11.2px;
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      padding: 2px 7.5px;
+      border-radius: 5px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+    }
+
+    .edu-degree {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+
+    .edu-school {
+      font-size: 12.8px;
+      color: var(--accent);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .edu-period {
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── TWO COLUMN LAYOUT ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 200px;
+      gap: 24px;
+    }
+
+    /* ── SIDEBAR (RIGHT COLUMN) ── */
+    .sidebar-section {
+      margin-bottom: 6px;
+    }
+
+    .sidebar-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-group {
+      margin-bottom: 3px;
+    }
+
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── PROJECT LINKS ── */
+    .project-links {
+      margin-top: 2px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .project-links a {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: "DM Mono", monospace;
+      font-weight: 500;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    .project-links a.demo {
+      color: var(--accent2);
+    }
+
+    /* ── PHILOSOPHY BOX ── */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .philosophy-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+    }
+
+    .philosophy-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .philosophy-text {
+      font-size: 12.5px;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    /* ── PAGE 2 HEADER ── */
+    .page2-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 10px;
+    }
+
+    .page2-header .page2-name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .page2-header .page2-title {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: "DM Mono", monospace;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── PAGE NUMBER ── */
+    .page-number {
+      position: absolute;
+      bottom: 14px;
+      right: var(--page-padding-x);
+      font-size: 11px;
+      font-family: "DM Mono", monospace;
+      color: #b0b8c4;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ═══════════════════ PAGE 1 ═══════════════════ -->
+  <div class="page">
+    <!-- HEADER -->
+    <div class="header">
+      <div>
+        <div class="name">Tran Quang Khai</div>
+        <div class="title">IT Instructor & Software Engineer · Web Development Specialist</div>
+      </div>
+      <div class="contacts">
+        <div class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.38a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z" />
+          </svg>
+          0389 346 149
+        </div>
+        <div class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,12 2,6" />
+          </svg>
+          <a href="mailto:dev.khaitran@gmail.com">dev.khaitran@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          <a href="https://www.khai-tran-software-engineer.id.vn/">khai-tran-software-engineer.id.vn</a>
+        </div>
+        <div class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+          <a href="https://github.com/TranQuangKhai288">github.com/TranQuangKhai288</a>
+        </div>
+        <div class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          <a href="https://www.linkedin.com/in/khai-tran-quang-919586400/">linkedin.com/in/khai-tran-quang</a>
+        </div>
+        <div class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Thu Duc City, Ho Chi Minh City
+        </div>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <p class="summary">
+      Dedicated <strong>IT & Programming Instructor</strong> and <strong>Software Engineer</strong> with solid industry experience and active teaching experience at <strong>MindX Technology School</strong>. Passionate about <strong>Project-Based Learning (PBL)</strong>, guiding students to master fundamental-to-advanced Web Development, Python, and Software Design. Combines real-world production engineering practices with an engaging, student-centric pedagogical approach to inspire computational thinking, problem-solving, and practical portfolio creation.
+    </p>
+
+    <div class="two-col">
+      <!-- LEFT COLUMN: TEACHING & INDUSTRY EXPERIENCE -->
+      <div>
+        <div class="section">
+          <div class="section-title">Teaching & Professional Experience</div>
+
+          <!-- MindX -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">IT & Programming Instructor</div>
+              <div class="job-period">Apr 2026 – Present</div>
+            </div>
+            <div class="job-company">
+              MindX Technology School · STEAM & Coding Academy
+            </div>
+            <div class="project-label">Web Development & Programming Foundation Courses</div>
+            <div class="project-desc" style="margin-bottom: 3px;">
+              Instruction in HTML/CSS, JavaScript, ReactJS, Python, and Algorithmic Thinking for diverse learner age groups.
+            </div>
+            <div class="tags" style="margin-bottom: 5px;">
+              <span class="tag">Project-Based Learning</span>
+              <span class="tag">Web Development</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">ReactJS</span>
+              <span class="tag">Python</span>
+              <span class="tag">Git/GitHub</span>
+            </div>
+            <ul class="bullets">
+              <li>
+                <strong>Curriculum Delivery & Classroom Engagement:</strong> Delivered interactive lectures and hands-on coding labs, breaking down complex programming concepts (DOM manipulation, async JS, component lifecycle) into accessible, real-world analogies.
+              </li>
+              <li>
+                <strong>Capstone Project Mentorship:</strong> Guided multiple student cohorts through end-to-end capstone projects (interactive games, e-commerce web apps, portfolio websites) from idea conceptualization to live hosting.
+              </li>
+              <li>
+                <strong>Personalized Coaching & Code Reviews:</strong> Provided constructive 1-on-1 code reviews and debugging sessions, fostering an independent problem-solving mindset and achieving high course retention (>95%).
+              </li>
+              <li>
+                <strong>Academic Assessment & Stakeholder Feedback:</strong> Evaluated weekly progress, provided structured feedback reports, and maintained active communication with parents and academic coordinators on student development.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tripdata -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Front-end Developer</div>
+              <div class="job-period">Jun 2025 – Now</div>
+            </div>
+            <div class="job-company">
+              Tripdata Vietnam · B2B TravelTech Platform
+            </div>
+            <div class="project-label">Travel Booking Portal</div>
+            <div class="project-desc" style="margin-bottom: 3px;">
+              Multi-service booking platform (Flights, Hotels) for travel agencies.
+            </div>
+            <div class="tags" style="margin-bottom: 5px;">
+              <span class="tag">React JS</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Vite</span>
+              <span class="tag">Zustand</span>
+              <span class="tag">Tailwind CSS</span>
+            </div>
+            <ul class="bullets">
+              <li>
+                <strong>Feature Development:</strong> Developed flight/hotel search engines with dynamic multi-criteria filters and multi-step booking validation wizards.
+              </li>
+              <li>
+                <strong>Performance Optimization:</strong> Integrated React Query and Zustand to cache API responses, reducing redundant network requests by ~30%.
+              </li>
+              <li>
+                <strong>Code Refactoring:</strong> Migrated legacy UI from Bootstrap to Tailwind CSS, improving overall page load speed and architectural maintainability.
+              </li>
+            </ul>
+          </div>
+
+          <!-- JDI -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Software Developer (Intern & Contractor)</div>
+              <div class="job-period">Jun 2024 – Dec 2024</div>
+            </div>
+            <div class="job-company">
+              Tech JDI Vietnam · JDI Group (Singapore)
+            </div>
+            <div class="project-label">AI Knowledge Base & HR Management Platform</div>
+            <div class="project-desc" style="margin-bottom: 3px;">
+              LLM-powered internal chatbot and role-based management admin dashboards.
+            </div>
+            <div class="tags" style="margin-bottom: 5px;">
+              <span class="tag">Refine</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Ant Design</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">MongoDB</span>
+            </div>
+            <ul class="bullets">
+              <li>
+                <strong>Clean Code & Architecture:</strong> Built modular components using Clean Architecture, facilitating collaborative team workflows with minimal conflicts.
+              </li>
+              <li>
+                <strong>Data Pipelines & APIs:</strong> Engineered vector embedding pipelines and RESTful APIs connecting AI services with front-end dashboards.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <!-- EDUCATION -->
+        <div class="sidebar-section">
+          <div class="section-title">Education</div>
+          <div>
+            <div class="edu-degree">B.Sc. Software Engineering</div>
+            <div class="edu-school">
+              University of Information Technology — VNU-HCM
+            </div>
+            <div class="edu-period">2021 – Expected 2026</div>
+          </div>
+        </div>
+
+        <!-- TEACHING COMPETENCIES -->
+        <div class="sidebar-section">
+          <div class="section-title">Teaching Skills</div>
+
+          <div class="skill-group">
+            <div class="tags">
+              <span class="tag">Project-Based Learning</span>
+              <span class="tag">Classroom Management</span>
+              <span class="tag">Lesson Planning</span>
+              <span class="tag">Code Review & Mentoring</span>
+              <span class="tag">Student Assessment</span>
+              <span class="tag">Gamified Learning</span>
+              <span class="tag">Curriculum Delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TECHNICAL SKILLS -->
+        <div class="sidebar-section">
+          <div class="section-title">Technical Skills</div>
+
+          <div class="skill-group">
+            <div class="skill-label">Programming</div>
+            <div class="tags">
+              <span class="tag">JavaScript (ES6+)</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">HTML5 / CSS3</span>
+              <span class="tag">C# / C++</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-label">Frontend</div>
+            <div class="tags">
+              <span class="tag">React JS</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">React Native</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Ant Design</span>
+              <span class="tag">Vite</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-label">Backend & Data</div>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">RESTful API</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-label">Dev Tools</div>
+            <div class="tags">
+              <span class="tag">Git / GitHub</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Postman</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOFT SKILLS -->
+        <div class="sidebar-section">
+          <div class="section-title">Soft Skills</div>
+          <div class="tags">
+            <span class="tag">Public Speaking</span>
+            <span class="tag">Empathy & Patience</span>
+            <span class="tag">Active Listening</span>
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Team Motivation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-number">1 / 2</div>
+  </div>
+
+  <!-- ═══════════════════ PAGE 2 ═══════════════════ -->
+  <div class="page">
+    <!-- Page 2 mini-header -->
+    <div class="page2-header">
+      <div class="page2-name">Tran Quang Khai</div>
+      <div class="page2-title">IT Instructor & Software Engineer · Web Development Specialist</div>
+    </div>
+
+    <!-- TEACHING PHILOSOPHY & METHODOLOGY -->
+    <div class="section" style="margin-bottom: 12px;">
+      <div class="section-title">Teaching Philosophy & Pedagogical Approach</div>
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <div class="philosophy-title">
+            <span>🚀</span> Concept to Creation (PBL)
+          </div>
+          <div class="philosophy-text">
+            Prioritizing hands-on creation over passive listening. Students learn programming fundamentals by actively building real-world web apps, games, and tools from lesson one.
+          </div>
+        </div>
+        <div class="philosophy-card">
+          <div class="philosophy-title">
+            <span>🔍</span> Debugging & Problem-Solving Mindset
+          </div>
+          <div class="philosophy-text">
+            Guiding students to read error logs, ask the right technical questions, and utilize developer tools, transforming coding bugs from frustrating obstacles into learning opportunities.
+          </div>
+        </div>
+        <div class="philosophy-card">
+          <div class="philosophy-title">
+            <span>💡</span> Encouraging Growth & Curiosity
+          </div>
+          <div class="philosophy-text">
+            Cultivating an inclusive, encouraging classroom environment where experimentation is celebrated, fostering resilient mindsets and genuine passion for technology.
+          </div>
+        </div>
+        <div class="philosophy-card">
+          <div class="philosophy-title">
+            <span>🤝</span> Modern Industry Best Practices
+          </div>
+          <div class="philosophy-text">
+            Instilling professional habits early on, including clean code conventions, Git branch workflows, modular component design, and collaborative teamwork.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRACTICAL & EDUCATIONAL SHOWCASE PROJECTS -->
+    <div class="section">
+      <div class="section-title">Technical Projects & Showcase Case Studies</div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">ZenFlow Spa – SaaS-ready Spa Management Platform</div>
+          <div class="job-period">May 2026 – Now</div>
+        </div>
+
+        <div class="project-desc" style="margin-bottom: 3px;">
+          Multi-tenant spa management and booking system featuring high-fidelity glassmorphism design and real-time operations dashboard.
+        </div>
+
+        <div class="project-links" style="margin-bottom: 5px;">
+          <a href="https://spa-sme-fe.pages.dev/" class="demo">↗ Live Demo (Develop version)</a>
+        </div>
+
+        <div class="tags" style="margin-bottom: 5px;">
+          <span class="tag">Next.js 15/16</span>
+          <span class="tag">React 19</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind CSS v4</span>
+          <span class="tag">Hono</span>
+          <span class="tag">Cloudflare Workers</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Pusher</span>
+        </div>
+
+        <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-top: 4px; margin-bottom: 2px;">
+          Backend & Infrastructure</div>
+        <ul class="bullets" style="margin-bottom: 4px;">
+          <li>
+            <strong>Serverless Architecture:</strong> Built the backend on Cloudflare Workers using the Hono framework, integrating Supabase via REST/HTTP client to eliminate cold starts and scale efficiently.
+          </li>
+          <li>
+            <strong>Automated Scheduling:</strong> Engineered a Cloudflare Workers Cron Trigger running every 15 minutes to scan upcoming bookings, compute real-time slot availability, and trigger automated notifications.
+          </li>
+        </ul>
+
+        <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-top: 4px; margin-bottom: 2px;">
+          Frontend & Real-time</div>
+        <ul class="bullets">
+          <li>
+            <strong>Real-time Sync & Modern Styling:</strong> Integrated Pusher for real-time dashboard updates and crafted a responsive multi-tenant UI using Tailwind CSS v4 and glassmorphism styling tokens.
+          </li>
+        </ul>
+      </div>
+
+      <div class="job" style="margin-top: 10px;">
+        <div class="job-header">
+          <div class="job-title">Cupid Echo – Dating & Matching Mobile Application</div>
+          <div class="job-period">Sep 2024 – Nov 2024</div>
+        </div>
+
+        <div class="project-desc" style="margin-bottom: 3px;">
+          Mobile app featuring scoring-based matching queue, real-time chat, and WebRTC audio/video calls.
+        </div>
+
+        <div class="project-links" style="margin-bottom: 5px;">
+          <a href="https://github.com/TranQuangKhai288/CupidEcho">⬡ GitHub (App)</a>
+          <a href="https://github.com/TranQuangKhai288/CupidEcho_BE">⬡ GitHub (Backend)</a>
+        </div>
+
+        <div class="tags" style="margin-bottom: 5px;">
+          <span class="tag">React Native</span>
+          <span class="tag">Expo</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Socket.IO</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Stream.io SDK</span>
+        </div>
+
+        <ul class="bullets">
+          <li>
+            <strong>Matching Engine & WebSockets:</strong> Implemented a compatibility scoring queue system with adaptive threshold fallback and managed live room events via Socket.IO.
+          </li>
+          <li>
+            <strong>Real-time Voice & Video Calls:</strong> Integrated Stream.io Video SDK on React Native frontend for token-authenticated WebRTC calls with low latency and fluid UI transitions.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-number">2 / 2</div>
+  </div>
+</body>
+
+</html>
