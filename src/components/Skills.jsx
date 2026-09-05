@@ -1,40 +1,40 @@
 import skillsData from '../data/skillsData.jsx';
 
 const BRAND_COLORS = {
-  // Frontend
-  "HTML": "#e34c26",
-  "CSS": "#264de4",
-  "JavaScript": "#f7df1e",
-  "TypeScript": "#3178c6",
-  "React JS": "#61dafb",
-  "Next JS": "#000000",
-  "React Native": "#61dafb",
-  "Material UI": "#0081cb",
-  "Refine": "#3072ff",
-  "BootStrap": "#7952b3",
-  "AntD": "#1890ff",
-  "Redux & Redux Toolkit": "#764abc",
-  // Backend
-  "Node.js": "#339933",
-  "Express.js": "#475569",
-  "REST API": "#0284c7",
-  // Database
-  "SQL": "#00758f",
-  "MySQL": "#00758f",
-  "MongoDB": "#47a248",
-  "Firebase": "#ffca28",
-  "PostgreSQL": "#4169e1",
-  // Other
-  "Clean code & Debugging": "#10b981",
-  "Unit Testing (Jest, React Testing Library…)": "#ea580c",
-  "CI/CD Basics": "#3b82f6",
-  "Git": "#f05032",
-  "Figma": "#f24e1e",
-  // Soft Skills
-  "Problem Solving": "#eab308",
-  "Self-Learning": "#10b981",
-  "Teamwork": "#3b82f6",
-  "Communication": "#ec4899"
+    // Frontend
+    "HTML": "#e34c26",
+    "CSS": "#264de4",
+    "JavaScript": "#f7df1e",
+    "TypeScript": "#3178c6",
+    "React JS": "#61dafb",
+    "Next JS": "#000000",
+    "React Native": "#61dafb",
+    "Material UI": "#0081cb",
+    "Refine": "#3072ff",
+    "BootStrap": "#7952b3",
+    "AntD": "#1890ff",
+    "Redux & Redux Toolkit": "#764abc",
+    // Backend
+    "Node.js": "#339933",
+    "Express.js": "#475569",
+    "REST API": "#0284c7",
+    // Database
+    "SQL": "#00758f",
+    "MySQL": "#00758f",
+    "MongoDB": "#47a248",
+    "Firebase": "#ffca28",
+    "PostgreSQL": "#4169e1",
+    // Other
+    "Clean code & Debugging": "#10b981",
+    "Unit Testing (Jest, React Testing Library…)": "#ea580c",
+    "CI/CD Basics": "#3b82f6",
+    "Git": "#f05032",
+    "Figma": "#f24e1e",
+    // Soft Skills
+    "Problem Solving": "#eab308",
+    "Self-Learning": "#10b981",
+    "Teamwork": "#3b82f6",
+    "Communication": "#ec4899"
 };
 
 const Skills = () => {
@@ -80,7 +80,7 @@ const Skills = () => {
                                                 data-aos-delay={rowIdx * 100}
                                                 data-aos="fade-up"
                                             >
-                                                <div 
+                                                <div
                                                     className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                                                     style={{ backgroundColor: `${color}15`, color: color }}
                                                 >
@@ -98,10 +98,10 @@ const Skills = () => {
                         ) : (
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {section.groups.map((group, idx) => (
-                                    <div 
-                                        key={group.category} 
-                                        className="bg-white/40 dark:bg-slate-900/20 backdrop-blur-md rounded-2xl shadow-md border border-slate-200/50 dark:border-slate-800/60 p-6 transition-all duration-300 hover:shadow-lg" 
-                                        data-aos="fade-up" 
+                                    <div
+                                        key={group.category}
+                                        className="bg-white/40 dark:bg-slate-900/20 backdrop-blur-md rounded-2xl shadow-md border border-slate-200/50 dark:border-slate-800/60 p-6 transition-all duration-300 hover:shadow-lg"
+                                        data-aos="fade-up"
                                         data-aos-delay={idx * 100}
                                     >
                                         <h4 className="text-lg font-bold mb-4 text-slate-700 dark:text-slate-200 border-b border-slate-200/50 dark:border-slate-800/50 pb-2">{group.category}</h4>

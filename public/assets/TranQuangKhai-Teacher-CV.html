@@ -16,8 +16,9 @@
       --muted: #64748b;
       --border: #e2e8f0;
       --bg: #ffffff;
-      --tag-bg: #f1f5f9;
-      --tag-color: #334155;
+      --tag-bg: #eff6ff;
+      --tag-color: #1d4ed8;
+      --tag-border: #bfdbfe;
       --page-width: 794px;
       --page-height: 1123px;
       --page-padding-x: 44px;
@@ -206,6 +207,7 @@
       margin-bottom: 2px;
       font-style: italic;
       line-height: 1.35;
+      text-align: justify;
     }
 
     .bullets {
@@ -221,6 +223,7 @@
       position: relative;
       margin-bottom: 1.5px;
       line-height: 1.38;
+      text-align: justify;
     }
 
     .bullets li::before {
@@ -251,18 +254,28 @@
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px;
+      gap: 4px 5px;
     }
 
     .tag {
-      font-size: 11.2px;
-      background: var(--tag-bg);
-      color: var(--tag-color);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      padding: 2px 7.5px;
-      border-radius: 5px;
+      font-size: 11px;
+      background: #f8fafc;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      padding: 2px 7px;
+      border-radius: 4px;
       font-weight: 500;
-      line-height: 1.2;
+      line-height: 1.3;
+      letter-spacing: 0.1px;
+    }
+
+    /* Refined Skill Badges in Sidebar */
+    .sidebar-section .tag {
+      background: #f0f7ff;
+      color: #1e40af;
+      border: 1px solid #dbeafe;
+      font-weight: 500;
+      padding: 2px 7px;
     }
 
     /* ── EDUCATION ── */
@@ -294,8 +307,8 @@
     /* ── TWO COLUMN LAYOUT ── */
     .two-col {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 200px;
-      gap: 24px;
+      grid-template-columns: minmax(0, 1fr) 235px;
+      gap: 20px;
     }
 
     /* ── SIDEBAR (RIGHT COLUMN) ── */
@@ -490,7 +503,12 @@
 
     <!-- SUMMARY -->
     <p class="summary">
-      Dedicated <strong>IT & Programming Instructor</strong> and <strong>Software Engineer</strong> with solid industry experience and active teaching experience at <strong>MindX Technology School</strong>. Passionate about <strong>Project-Based Learning (PBL)</strong>, guiding students to master fundamental-to-advanced Web Development, Python, and Software Design. Combines real-world production engineering practices with an engaging, student-centric pedagogical approach to inspire computational thinking, problem-solving, and practical portfolio creation.
+      Dedicated <strong>IT & Programming Instructor</strong> and <strong>Software Engineer</strong> with solid industry
+      experience and active teaching experience at <strong>MindX Technology School</strong>. Passionate about
+      <strong>Project-Based Learning (PBL)</strong>, guiding students to master fundamental-to-advanced Web Development,
+      Python, and Software Design. Combines real-world production engineering practices with an engaging,
+      student-centric pedagogical approach to inspire computational thinking, problem-solving, and practical portfolio
+      creation.
     </p>
 
     <div class="two-col">
@@ -510,7 +528,8 @@
             </div>
             <div class="project-label">Web Development & Programming Foundation Courses</div>
             <div class="project-desc" style="margin-bottom: 3px;">
-              Instruction in HTML/CSS, JavaScript, ReactJS, Python, and Algorithmic Thinking for diverse learner age groups.
+              Instruction in HTML/CSS, JavaScript, ReactJS, Python, and Algorithmic Thinking for diverse learner age
+              groups.
             </div>
             <div class="tags" style="margin-bottom: 5px;">
               <span class="tag">Project-Based Learning</span>
@@ -522,16 +541,24 @@
             </div>
             <ul class="bullets">
               <li>
-                <strong>Curriculum Delivery & Classroom Engagement:</strong> Delivered interactive lectures and hands-on coding labs, breaking down complex programming concepts (DOM manipulation, async JS, component lifecycle) into accessible, real-world analogies.
+                <strong>Curriculum Delivery & Classroom Engagement:</strong> Delivered interactive lectures and hands-on
+                coding labs, breaking down complex programming concepts (DOM manipulation, async JS, component
+                lifecycle) into accessible, real-world analogies.
               </li>
               <li>
-                <strong>Capstone Project Mentorship:</strong> Guided multiple student cohorts through end-to-end capstone projects (interactive games, e-commerce web apps, portfolio websites) from idea conceptualization to live hosting.
+                <strong>Capstone Project Mentorship:</strong> Guided multiple student cohorts through end-to-end
+                capstone projects (interactive games, e-commerce web apps, portfolio websites) from idea
+                conceptualization to live hosting.
               </li>
               <li>
-                <strong>Personalized Coaching & Code Reviews:</strong> Provided constructive 1-on-1 code reviews and debugging sessions, fostering an independent problem-solving mindset and achieving high course retention (>95%).
+                <strong>Personalized Coaching & Code Reviews:</strong> Provided constructive 1-on-1 code reviews and
+                debugging sessions, fostering an independent problem-solving mindset and achieving high course retention
+                (>95%).
               </li>
               <li>
-                <strong>Academic Assessment & Stakeholder Feedback:</strong> Evaluated weekly progress, provided structured feedback reports, and maintained active communication with parents and academic coordinators on student development.
+                <strong>Academic Assessment & Stakeholder Feedback:</strong> Evaluated weekly progress, provided
+                structured feedback reports, and maintained active communication with parents and academic coordinators
+                on student development.
               </li>
             </ul>
           </div>
@@ -558,13 +585,16 @@
             </div>
             <ul class="bullets">
               <li>
-                <strong>Feature Development:</strong> Developed flight/hotel search engines with dynamic multi-criteria filters and multi-step booking validation wizards.
+                <strong>Feature Development:</strong> Developed flight/hotel search engines with dynamic multi-criteria
+                filters and multi-step booking validation wizards.
               </li>
               <li>
-                <strong>Performance Optimization:</strong> Integrated React Query and Zustand to cache API responses, reducing redundant network requests by ~30%.
+                <strong>Performance Optimization:</strong> Integrated React Query and Zustand to cache API responses,
+                reducing redundant network requests by ~30%.
               </li>
               <li>
-                <strong>Code Refactoring:</strong> Migrated legacy UI from Bootstrap to Tailwind CSS, improving overall page load speed and architectural maintainability.
+                <strong>Code Refactoring:</strong> Migrated legacy UI from Bootstrap to Tailwind CSS, improving overall
+                page load speed and architectural maintainability.
               </li>
             </ul>
           </div>
@@ -592,10 +622,12 @@
             </div>
             <ul class="bullets">
               <li>
-                <strong>Clean Code & Architecture:</strong> Built modular components using Clean Architecture, facilitating collaborative team workflows with minimal conflicts.
+                <strong>Clean Code & Architecture:</strong> Built modular components using Clean Architecture,
+                facilitating collaborative team workflows with minimal conflicts.
               </li>
               <li>
-                <strong>Data Pipelines & APIs:</strong> Engineered vector embedding pipelines and RESTful APIs connecting AI services with front-end dashboards.
+                <strong>Data Pipelines & APIs:</strong> Engineered vector embedding pipelines and RESTful APIs
+                connecting AI services with front-end dashboards.
               </li>
             </ul>
           </div>
@@ -612,7 +644,7 @@
             <div class="edu-school">
               University of Information Technology — VNU-HCM
             </div>
-            <div class="edu-period">2021 – Expected 2026</div>
+            <div class="edu-period">2021 – 2026</div>
           </div>
         </div>
 
@@ -717,7 +749,8 @@
             <span>🚀</span> Concept to Creation (PBL)
           </div>
           <div class="philosophy-text">
-            Prioritizing hands-on creation over passive listening. Students learn programming fundamentals by actively building real-world web apps, games, and tools from lesson one.
+            Prioritizing hands-on creation over passive listening. Students learn programming fundamentals by actively
+            building real-world web apps, games, and tools from lesson one.
           </div>
         </div>
         <div class="philosophy-card">
@@ -725,7 +758,8 @@
             <span>🔍</span> Debugging & Problem-Solving Mindset
           </div>
           <div class="philosophy-text">
-            Guiding students to read error logs, ask the right technical questions, and utilize developer tools, transforming coding bugs from frustrating obstacles into learning opportunities.
+            Guiding students to read error logs, ask the right technical questions, and utilize developer tools,
+            transforming coding bugs from frustrating obstacles into learning opportunities.
           </div>
         </div>
         <div class="philosophy-card">
@@ -733,7 +767,8 @@
             <span>💡</span> Encouraging Growth & Curiosity
           </div>
           <div class="philosophy-text">
-            Cultivating an inclusive, encouraging classroom environment where experimentation is celebrated, fostering resilient mindsets and genuine passion for technology.
+            Cultivating an inclusive, encouraging classroom environment where experimentation is celebrated, fostering
+            resilient mindsets and genuine passion for technology.
           </div>
         </div>
         <div class="philosophy-card">
@@ -741,7 +776,8 @@
             <span>🤝</span> Modern Industry Best Practices
           </div>
           <div class="philosophy-text">
-            Instilling professional habits early on, including clean code conventions, Git branch workflows, modular component design, and collaborative teamwork.
+            Instilling professional habits early on, including clean code conventions, Git branch workflows, modular
+            component design, and collaborative teamwork.
           </div>
         </div>
       </div>
@@ -758,7 +794,8 @@
         </div>
 
         <div class="project-desc" style="margin-bottom: 3px;">
-          Multi-tenant spa management and booking system featuring high-fidelity glassmorphism design and real-time operations dashboard.
+          Multi-tenant spa management and booking system featuring high-fidelity glassmorphism design and real-time
+          operations dashboard.
         </div>
 
         <div class="project-links" style="margin-bottom: 5px;">
@@ -780,10 +817,12 @@
           Backend & Infrastructure</div>
         <ul class="bullets" style="margin-bottom: 4px;">
           <li>
-            <strong>Serverless Architecture:</strong> Built the backend on Cloudflare Workers using the Hono framework, integrating Supabase via REST/HTTP client to eliminate cold starts and scale efficiently.
+            <strong>Serverless Architecture:</strong> Built the backend on Cloudflare Workers using the Hono framework,
+            integrating Supabase via REST/HTTP client to eliminate cold starts and scale efficiently.
           </li>
           <li>
-            <strong>Automated Scheduling:</strong> Engineered a Cloudflare Workers Cron Trigger running every 15 minutes to scan upcoming bookings, compute real-time slot availability, and trigger automated notifications.
+            <strong>Automated Scheduling:</strong> Engineered a Cloudflare Workers Cron Trigger running every 15 minutes
+            to scan upcoming bookings, compute real-time slot availability, and trigger automated notifications.
           </li>
         </ul>
 
@@ -791,7 +830,8 @@
           Frontend & Real-time</div>
         <ul class="bullets">
           <li>
-            <strong>Real-time Sync & Modern Styling:</strong> Integrated Pusher for real-time dashboard updates and crafted a responsive multi-tenant UI using Tailwind CSS v4 and glassmorphism styling tokens.
+            <strong>Real-time Sync & Modern Styling:</strong> Integrated Pusher for real-time dashboard updates and
+            crafted a responsive multi-tenant UI using Tailwind CSS v4 and glassmorphism styling tokens.
           </li>
         </ul>
       </div>
@@ -823,10 +863,12 @@
 
         <ul class="bullets">
           <li>
-            <strong>Matching Engine & WebSockets:</strong> Implemented a compatibility scoring queue system with adaptive threshold fallback and managed live room events via Socket.IO.
+            <strong>Matching Engine & WebSockets:</strong> Implemented a compatibility scoring queue system with
+            adaptive threshold fallback and managed live room events via Socket.IO.
           </li>
           <li>
-            <strong>Real-time Voice & Video Calls:</strong> Integrated Stream.io Video SDK on React Native frontend for token-authenticated WebRTC calls with low latency and fluid UI transitions.
+            <strong>Real-time Voice & Video Calls:</strong> Integrated Stream.io Video SDK on React Native frontend for
+            token-authenticated WebRTC calls with low latency and fluid UI transitions.
           </li>
         </ul>
       </div>
