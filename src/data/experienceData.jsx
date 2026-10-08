@@ -2,7 +2,7 @@ const experienceData = [
   {
     position: "Front-end Developer",
     company: "Tripdata Vietnam · B2B TravelTech Platform",
-    period: "Jun 2025 – Present",
+    period: "06/2025 – Present",
     description:
       "Multi-service booking platform (Flights, Hotels) for travel agencies.",
     tags: ["React JS", "TypeScript", "Vite", "Zustand", "ASP.NET", "C#"],
@@ -17,7 +17,7 @@ const experienceData = [
   {
     position: "Software Developer (Intern & Contractor)",
     company: "Tech JDI Vietnam · JDI Group (Singapore)",
-    period: "Jun 2024 – Dec 2024",
+    period: "06/2024 – 12/2024",
     description:
       "Full-stack development on AI chatbot and HR management platform.",
     tags: ["Refine", "TypeScript", "Ant Design", "Node.js", "FastAPI", "MongoDB"],

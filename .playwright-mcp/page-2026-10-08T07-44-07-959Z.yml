@@ -1,0 +1,260 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - generic [ref=f2e4]:
+        - generic [ref=f2e5]: Tran Quang Khai
+        - generic [ref=f2e6]: Frontend Developer (React, Next.js)
+      - generic [ref=f2e7]:
+        - generic [ref=f2e8]: 0389 346 149
+        - link "dev.khaitran@gmail.com" [ref=f2e15] [cursor=pointer]:
+          - /url: mailto:dev.khaitran@gmail.com
+        - link "khai-tran-software-engineer.id.vn" [ref=f2e20] [cursor=pointer]:
+          - /url: https://www.khai-tran-software-engineer.id.vn/
+        - link "github.com/TranQuangKhai288" [ref=f2e24] [cursor=pointer]:
+          - /url: https://github.com/TranQuangKhai288
+        - link "linkedin.com/in/khai-tran-quang" [ref=f2e30] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/khai-tran-quang-919586400/
+        - generic [ref=f2e31]: Thu Duc City, Ho Chi Minh City
+    - paragraph [ref=f2e35]:
+      - text: Frontend Developer specializing in
+      - strong [ref=f2e36]: React, TypeScript, and Next.js
+      - text: ", building resilient UIs for AI products, including streaming chat interfaces and async, error-prone flows. Experienced with Node.js and Express for server-side work, leveraging AI coding tools daily with custom skills and agent rules to accelerate development."
+    - generic [ref=f2e37]:
+      - generic [ref=f2e39]:
+        - generic [ref=f2e40]: Professional Experience
+        - generic [ref=f2e41]:
+          - generic [ref=f2e42]:
+            - generic [ref=f2e43]: Frontend Developer
+            - generic [ref=f2e44]: 06/2025 – Now
+          - generic [ref=f2e45]: Tripdata Vietnam · B2B TravelTech Platform
+          - generic [ref=f2e46]: Travel Booking Portal
+          - generic [ref=f2e47]: Multi-service booking platform (Flights, Hotels) for travel agencies.
+          - generic [ref=f2e48]:
+            - generic [ref=f2e49]: React JS
+            - generic [ref=f2e50]: TypeScript
+            - generic [ref=f2e51]: Vite
+            - generic [ref=f2e52]: Zustand
+            - generic [ref=f2e53]: Vitest
+            - generic [ref=f2e54]: Testing Library
+          - list [ref=f2e55]:
+            - listitem [ref=f2e56]:
+              - text: –
+              - strong [ref=f2e57]: "Feature Development:"
+              - text: Developed flight/hotel search engines with dynamic multi-criteria filters and a multi-step booking wizard with complex passenger validations.
+            - listitem [ref=f2e58]:
+              - text: –
+              - strong [ref=f2e59]: "Performance Optimization:"
+              - text: Integrated React Query and Zustand to cache API responses and abort obsolete requests, reducing redundant calls by ~30%.
+            - listitem [ref=f2e60]:
+              - text: –
+              - strong [ref=f2e61]: "Refactoring & Migration:"
+              - text: Refactored legacy UI components and migrated fully from Bootstrap to Tailwind CSS, improving page load speed and maintainability.
+            - listitem [ref=f2e62]:
+              - text: –
+              - strong [ref=f2e63]: "Document Generation:"
+              - text: Designed pixel-perfect responsive HTML/CSS templates for flight ticket PDFs, ensuring layout consistency across ticketing agencies.
+            - listitem [ref=f2e64]:
+              - text: –
+              - strong [ref=f2e65]: "Testing & Quality:"
+              - text: Wrote unit and integration tests with Vitest and Testing Library for complex passenger validation schemas and search filtering edge cases.
+        - generic [ref=f2e66]:
+          - generic [ref=f2e67]:
+            - generic [ref=f2e68]: Freelance Mobile Developer
+            - generic [ref=f2e69]: 01/2025 – 04/2025
+          - generic [ref=f2e70]: Freelance Project · Sports Booking & Social App
+          - list [ref=f2e71]:
+            - listitem [ref=f2e72]: – Built responsive mobile UI for court booking, real-time chat, and player profiles, collaborating with backend developer to integrate RESTful APIs.
+            - listitem [ref=f2e73]: – Managed state sync and optimistic updates across booking and chat screens using Zustand, integrating SSE for real-time notifications.
+        - generic [ref=f2e74]:
+          - generic [ref=f2e75]:
+            - generic [ref=f2e76]: Software Developer (Intern & Contractor)
+            - generic [ref=f2e77]: 06/2024 – 12/2024
+          - generic [ref=f2e78]: Tech JDI Vietnam · JDI Group (Singapore)
+          - generic [ref=f2e79]: AI Knowledge Base – Internal AI Chatbot
+          - generic [ref=f2e80]: LLM-powered chatbot for internal knowledge retrieval.
+          - generic [ref=f2e81]:
+            - generic [ref=f2e82]: Refine
+            - generic [ref=f2e83]: TypeScript
+            - generic [ref=f2e84]: Ant Design
+            - generic [ref=f2e85]: Node.js
+            - generic [ref=f2e86]: FastAPI
+            - generic [ref=f2e87]: MongoDB
+          - list [ref=f2e88]:
+            - listitem [ref=f2e89]:
+              - text: –
+              - strong [ref=f2e90]: "Streaming Chat UI:"
+              - text: Built conversational UI consuming SSE for real-time token streaming answers, markdown rendering, and auto-scrolling message streams.
+            - listitem [ref=f2e91]:
+              - text: –
+              - strong [ref=f2e92]: "AI Response UX:"
+              - text: Implemented resilient loading, error, and retry states to gracefully handle slow LLM responses, rate limits, and transient network errors.
+            - listitem [ref=f2e93]:
+              - text: –
+              - strong [ref=f2e94]: "Backend & Embeddings:"
+              - text: Built Node.js and FastAPI services to store text chunks and vector embeddings in MongoDB for RAG retrieval endpoints.
+          - generic [ref=f2e95]: Wealth Advisor – HR Management Platform
+          - generic [ref=f2e96]: Role-based, multi-level HR platform with permission delegation and task assignment.
+          - generic [ref=f2e97]:
+            - generic [ref=f2e98]: Refine
+            - generic [ref=f2e99]: TypeScript
+            - generic [ref=f2e100]: Ant Design
+          - list [ref=f2e101]:
+            - listitem [ref=f2e102]:
+              - text: –
+              - strong [ref=f2e103]: "Complex UI:"
+              - text: Built role-based admin dashboard with Refine & Ant Design, translating permission matrices into an intuitive, responsive management interface.
+            - listitem [ref=f2e104]:
+              - text: –
+              - strong [ref=f2e105]: "Performance:"
+              - text: Optimized rendering logic for large datasets, maintaining a smooth user experience under high data volume.
+      - generic [ref=f2e106]:
+        - generic [ref=f2e107]:
+          - generic [ref=f2e108]: Education
+          - generic [ref=f2e109]:
+            - generic [ref=f2e110]: B.Sc. Software Engineering
+            - generic [ref=f2e111]: University of Information Technology — VNU-HCM
+            - generic [ref=f2e112]: 2021 – 2026
+        - generic [ref=f2e113]:
+          - generic [ref=f2e114]: Technical Skills
+          - generic [ref=f2e115]:
+            - generic [ref=f2e116]: Frontend
+            - generic [ref=f2e117]:
+              - generic [ref=f2e118]: React JS
+              - generic [ref=f2e119]: Next.js
+              - generic [ref=f2e120]: React Native
+              - generic [ref=f2e121]: TypeScript
+              - generic [ref=f2e122]: JavaScript ES6
+              - generic [ref=f2e123]: Vite
+              - generic [ref=f2e124]: Refine
+          - generic [ref=f2e125]:
+            - generic [ref=f2e126]: UI / Styling
+            - generic [ref=f2e127]:
+              - generic [ref=f2e128]: Tailwind CSS
+              - generic [ref=f2e129]: shadcn/ui
+              - generic [ref=f2e130]: Ant Design
+              - generic [ref=f2e131]: Bootstrap
+              - generic [ref=f2e132]: CSS Modules
+          - generic [ref=f2e133]:
+            - generic [ref=f2e134]: State / Form Mgmt
+            - generic [ref=f2e135]:
+              - generic [ref=f2e136]: TanStack Query
+              - generic [ref=f2e137]: React Hook Form + Zod
+              - generic [ref=f2e138]: Zustand
+              - generic [ref=f2e139]: Redux
+              - generic [ref=f2e140]: Context API
+          - generic [ref=f2e141]:
+            - generic [ref=f2e142]: Testing
+            - generic [ref=f2e143]:
+              - generic [ref=f2e144]: Vitest
+              - generic [ref=f2e145]: Testing Library
+              - generic [ref=f2e146]: Playwright (AI-assisted)
+          - generic [ref=f2e147]:
+            - generic [ref=f2e148]: Backend
+            - generic [ref=f2e149]:
+              - generic [ref=f2e150]: Node.js
+              - generic [ref=f2e151]: Express.js
+              - generic [ref=f2e152]: FastAPI
+              - generic [ref=f2e153]: RESTful API
+          - generic [ref=f2e154]:
+            - generic [ref=f2e155]: Database
+            - generic [ref=f2e156]:
+              - generic [ref=f2e157]: MongoDB
+              - generic [ref=f2e158]: PostgreSQL
+              - generic [ref=f2e159]: Redis
+          - generic [ref=f2e160]:
+            - generic [ref=f2e161]: DevOps / Tools
+            - generic [ref=f2e162]:
+              - generic [ref=f2e163]: Git / GitHub
+              - generic [ref=f2e164]: Docker
+          - generic [ref=f2e165]:
+            - generic [ref=f2e166]: AI / LLM
+            - generic [ref=f2e167]:
+              - generic [ref=f2e168]: LLM Integration
+              - generic [ref=f2e169]: Cursor
+              - generic [ref=f2e170]: GitHub Copilot
+              - generic [ref=f2e171]: AI agent skills/rules
+    - generic [ref=f2e172]: 1 / 2
+  - generic [ref=f2e173]:
+    - generic [ref=f2e174]:
+      - generic [ref=f2e175]: Tran Quang Khai
+      - generic [ref=f2e176]: Frontend Developer (React, Next.js)
+    - generic [ref=f2e177]:
+      - generic [ref=f2e178]: Personal Projects
+      - generic [ref=f2e179]:
+        - generic [ref=f2e180]:
+          - generic [ref=f2e181]: ZenFlow Spa – SaaS-ready Spa Management Platform
+          - generic [ref=f2e182]: 05/2026 – Now
+        - generic [ref=f2e183]: Multi-tenant spa management and booking system featuring high-fidelity glassmorphism design and real-time operations dashboard.
+        - link "↗ Live Demo (Develop version)" [ref=f2e185] [cursor=pointer]:
+          - /url: https://spa-sme-fe.pages.dev/
+        - generic [ref=f2e186]:
+          - generic [ref=f2e187]: Next.js 15/16
+          - generic [ref=f2e188]: React 19
+          - generic [ref=f2e189]: TypeScript
+          - generic [ref=f2e190]: Tailwind CSS v4
+          - generic [ref=f2e191]: shadcn/ui
+          - generic [ref=f2e192]: Hono
+          - generic [ref=f2e193]: Cloudflare Workers
+          - generic [ref=f2e194]: Supabase
+          - generic [ref=f2e195]: Pusher
+        - generic [ref=f2e196]: Backend & Infrastructure
+        - list [ref=f2e197]:
+          - listitem [ref=f2e198]:
+            - text: –
+            - strong [ref=f2e199]: "Serverless Architecture:"
+            - text: Built backend on Cloudflare Workers using Hono, integrating Supabase via REST/HTTP client to eliminate cold starts and scale efficiently.
+          - listitem [ref=f2e200]:
+            - text: –
+            - strong [ref=f2e201]: "Automated Reminders:"
+            - text: Engineered Cloudflare Workers Cron Triggers running every 15 minutes to compute availability and trigger automated SMS via SpeedSMS.
+        - generic [ref=f2e202]: Frontend & Real-time
+        - list [ref=f2e203]:
+          - listitem [ref=f2e204]:
+            - text: –
+            - strong [ref=f2e205]: "Real-time Sync & Web Crypto:"
+            - text: Handled real-time dashboard events via Pusher REST API, using Web Crypto API for native HMAC-SHA256 signature generation.
+          - listitem [ref=f2e206]:
+            - text: –
+            - strong [ref=f2e207]: "Multi-tenant UI & Modern Styling:"
+            - text: Designed responsive tenant landing pages and an operational dashboard using Tailwind CSS v4, custom animations, and glassmorphism styling.
+      - generic [ref=f2e208]:
+        - generic [ref=f2e209]:
+          - generic [ref=f2e210]: Cupid Echo – Dating & Matching Mobile Application
+          - generic [ref=f2e211]: 09/2024 – 11/2024
+        - generic [ref=f2e212]: Dating and matching mobile app featuring a scoring-based matching queue, blind chat rooms, and real-time WebRTC audio/video calls.
+        - generic [ref=f2e213]:
+          - link "⬡ GitHub (App)" [ref=f2e214] [cursor=pointer]:
+            - /url: https://github.com/TranQuangKhai288/CupidEcho
+          - link "⬡ GitHub (Backend)" [ref=f2e215] [cursor=pointer]:
+            - /url: https://github.com/TranQuangKhai288/CupidEcho_BE
+        - generic [ref=f2e216]:
+          - generic [ref=f2e217]: React Native
+          - generic [ref=f2e218]: Expo
+          - generic [ref=f2e219]: TypeScript
+          - generic [ref=f2e220]: NativeWind
+          - generic [ref=f2e221]: Node.js
+          - generic [ref=f2e222]: Express
+          - generic [ref=f2e223]: Socket.IO
+          - generic [ref=f2e224]: MongoDB
+          - generic [ref=f2e225]: Stream.io SDK
+        - generic [ref=f2e226]: Backend & Real-time
+        - list [ref=f2e227]:
+          - listitem [ref=f2e228]:
+            - text: –
+            - strong [ref=f2e229]: "Matching & Scoring Engine:"
+            - text: Implemented a queue-based matching system evaluating compatibility scores with adaptive fallback thresholds over time.
+          - listitem [ref=f2e230]:
+            - text: –
+            - strong [ref=f2e231]: "WebSockets & Signaling:"
+            - text: Utilized Socket.IO for real-time events and room management, mounting an Express PeerServer for WebRTC signaling handshakes.
+        - generic [ref=f2e232]: Mobile & WebRTC
+        - list [ref=f2e233]:
+          - listitem [ref=f2e234]:
+            - text: –
+            - strong [ref=f2e235]: "Real-time Voice & Video Calls:"
+            - text: Integrated Stream.io Video SDK on React Native, enabling secure, token-authenticated WebRTC calls with low latency.
+          - listitem [ref=f2e236]:
+            - text: –
+            - strong [ref=f2e237]: "Interactive UI & Animations:"
+            - text: Built fluid gestures and transitions using React Native Reanimated and NativeWind, delivering a premium and native feel.
+    - generic [ref=f2e238]: 2 / 2
