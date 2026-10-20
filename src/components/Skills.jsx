@@ -13,6 +13,7 @@ const BRAND_COLORS = {
     "Refine": "#3072ff",
     "BootStrap": "#7952b3",
     "AntD": "#1890ff",
+    "Redux": "#764abc",
     "Redux & Redux Toolkit": "#764abc",
     // Backend
     "Node.js": "#339933",

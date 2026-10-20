@@ -98,7 +98,7 @@ const About = () => {
                                 aria-label="Download Resume"
                                 data-aos-delay="600"
                                 data-aos="fade-down"
-                                download="TranQuangKhai-CV.html"
+                                download="TranQuangKhai-Fullstack-Developer.html"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

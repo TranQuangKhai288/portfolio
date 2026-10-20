@@ -18,7 +18,7 @@ const homeData = {
     },
     {
       label: "Let's See My CV",
-      href: "/assets/TranQuangKhai-CV.html",
+      href: "/assets/TranQuangKhai-Fullstack-Developer.html",
       type: "secondary",
     },
   ],
