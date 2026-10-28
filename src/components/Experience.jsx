@@ -1,100 +1,106 @@
-import experienceData from "../data/experienceData.jsx";
+import { experienceData } from "../data/portfolioData";
+import { InView } from "./ui/in-view";
+import {
+  Briefcase,
+  Calendar,
+  MapPin,
+  Building2,
+  CheckCircle2,
+} from "lucide-react";
 
 const Experience = () => {
   return (
-    <section
-      id="experience"
-      className="min-h-screen pt-24 pb-16 relative overflow-hidden bg-transparent"
-      data-aos-duration="1000"
-      data-aos="fade-down"
-    >
-      <div className="max-w-4xl mx-auto px-4 relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-2 text-slate-800 dark:text-white">
-          Professional Experience
-        </h2>
-        <p className="text-center text-slate-500 dark:text-slate-400 mb-12 text-sm max-w-md mx-auto">
-          My professional milestones, engineering roles, and commercial contributions
-        </p>
+    <section id="experience" className="relative py-28 sm:py-36">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <InView>
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="space-y-3 max-w-xl">
+              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+                Career Timeline
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-neutral-900 dark:text-white">
+                Engineering Experience
+              </h2>
+            </div>
+            <p className="text-base text-neutral-500 dark:text-[#86868B] max-w-md leading-relaxed">
+              Production software engineering across B2B travel platforms, real-time sports apps, and venture studio systems.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 gap-8">
-          {experienceData.map((exp, idx) => (
-            <div
-              key={exp.position + exp.company}
-              className="bg-white/40 dark:bg-slate-900/30 backdrop-blur-md rounded-2xl shadow-md border border-slate-200/50 dark:border-slate-800/60 p-6 flex flex-col gap-4 hover:shadow-xl hover:border-slate-300 dark:hover:border-slate-700/80 transition-all duration-300 transform hover:-translate-y-1"
-              data-aos="fade-up"
-              data-aos-delay={idx * 100}
-            >
-              <div className="flex flex-col md:flex-row items-start md:items-start gap-4">
-                <div className="w-12 h-12 bg-blue-50 dark:bg-indigo-950/40 text-blue-600 dark:text-indigo-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner">
-                  <i className={`${exp.icon} text-2xl`} aria-hidden="true"></i>
-                </div>
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-white">
-                      {exp.position}
-                    </h3>
-                    <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-mono bg-blue-50 dark:bg-indigo-950/60 border border-blue-100 dark:border-indigo-900/80 px-2 py-0.5 rounded-full w-fit">
+          {/* Timeline Stream */}
+          <div className="space-y-8">
+            {experienceData.map((exp, idx) => (
+              <div
+                key={idx}
+                className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#0A0A0E] hairline-border space-y-6 shadow-sm hover:border-black/20 dark:hover:border-white/20 transition-colors"
+              >
+                {/* Header Row */}
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 hairline-b">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <h3 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+                        {exp.company}
+                      </h3>
+                      <span className="text-neutral-300 dark:text-neutral-700">·</span>
+                      <span className="text-xs font-mono text-neutral-500">
+                        {exp.subheadline}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="w-3.5 h-3.5 text-blue-500" />
+                      <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                        {exp.position}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-neutral-500">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-white/5 hairline-border text-neutral-800 dark:text-neutral-200 tabular-nums font-medium">
+                      <Calendar className="w-3 h-3 text-emerald-500" />
                       {exp.period}
                     </span>
+                    <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-neutral-100 dark:bg-white/5 hairline-border text-neutral-500">
+                      <MapPin className="w-3 h-3 text-neutral-400" />
+                      {exp.location}
+                    </span>
                   </div>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mt-0.5">
-                    {exp.company}
-                  </p>
-                  <p className="mt-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
+                </div>
 
-                  {/* Badges/Tags for Skills Used */}
-                  {exp.tags && (
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {exp.tags.map((tag, tagIdx) => (
-                        <span
-                          key={tagIdx}
-                          className="px-2.5 py-0.5 text-[10px] font-semibold bg-blue-50 dark:bg-indigo-950/40 text-blue-700 dark:text-indigo-300 border border-blue-100/60 dark:border-indigo-900/40 rounded-md"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                {/* Narrative Summary */}
+                <p className="text-base text-neutral-600 dark:text-[#86868B] leading-relaxed max-w-4xl">
+                  {exp.summary}
+                </p>
+
+                {/* Verified Achievements */}
+                <div className="space-y-3">
+                  {exp.achievements.map((ach, aIdx) => (
+                    <div
+                      key={aIdx}
+                      className="flex items-start gap-3 text-sm text-neutral-700 dark:text-neutral-300"
+                    >
+                      <CheckCircle2 className="w-4 h-4 mt-1 shrink-0 text-emerald-500" />
+                      <span className="leading-relaxed">{ach}</span>
                     </div>
-                  )}
+                  ))}
+                </div>
+
+                {/* Tech Tags */}
+                <div className="flex flex-wrap gap-1.5 pt-4 hairline-t">
+                  {(exp.tags || exp.technologies || []).map((tech, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="px-2.5 py-1 text-xs font-mono rounded-md bg-neutral-100 dark:bg-white/5 hairline-border text-neutral-600 dark:text-neutral-400"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
-
-              {exp.highlights && (
-                <div className="border-t border-slate-200/50 dark:border-slate-800/50 pt-4 mt-2">
-                  <ul className="space-y-2 ml-1 list-none">
-                    {exp.highlights.map((highlight, hIdx) => {
-                      const parts = highlight.split(':');
-                      if (parts.length > 1) {
-                        return (
-                          <li
-                            key={hIdx}
-                            className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed flex items-start gap-2"
-                          >
-                            <span className="text-indigo-500 dark:text-indigo-400 mt-1 font-mono text-[11px]">✦</span>
-                            <span>
-                              <strong className="text-slate-800 dark:text-slate-100 font-bold">{parts[0]}:</strong>
-                              {parts.slice(1).join(':')}
-                            </span>
-                          </li>
-                        );
-                      }
-                      return (
-                        <li
-                          key={hIdx}
-                          className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed flex items-start gap-2"
-                        >
-                          <span className="text-indigo-500 dark:text-indigo-400 mt-1 font-mono text-[11px]">✦</span>
-                          <span>{highlight}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </InView>
       </div>
     </section>
   );

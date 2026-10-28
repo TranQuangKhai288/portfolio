@@ -1,298 +1,195 @@
-import { useState, useEffect } from "react";
-import homeData from "../data/homeData.jsx";
-import Tippy from "@tippyjs/react";
-import Swal from "sweetalert2";
-import ParticleBackground from "./ParticleBackground";
+import { useState } from "react";
+import { personalInfo } from "../data/portfolioData";
+import { InView } from "./ui/in-view";
+import {
+  ArrowDown,
+  Copy,
+  Check,
+  FileText,
+  MapPin,
+  Sparkles,
+} from "lucide-react";
+import { Github, Linkedin } from "./ui/Icons";
 
-const Home = () => {
-  const [currentText, setCurrentText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
+const coreSpecializations = [
+  "React 19",
+  "TypeScript",
+  "Cloudflare Edge",
+  "Redis & WebSockets",
+  "TanStack Query",
+  "Model Context Protocol (MCP)",
+];
 
-  useEffect(() => {
-    const titles = homeData.typingTexts;
-    const currentTitle = titles[currentIndex];
+const Hero = () => {
+  const [copied, setCopied] = useState(false);
 
-    const typeSpeed = isDeleting ? 60 : 100;
-    const pauseTime = isDeleting ? 400 : 2000;
-
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        if (currentText.length < currentTitle.length) {
-          setCurrentText(currentTitle.substring(0, currentText.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), pauseTime);
-        }
-      } else {
-        if (currentText.length > 0) {
-          setCurrentText(currentText.substring(0, currentText.length - 1));
-        } else {
-          setIsDeleting(false);
-          setCurrentIndex((prevIndex) => (prevIndex + 1) % titles.length);
-        }
-      }
-    }, typeSpeed);
-
-    return () => clearTimeout(timer);
-  }, [currentText, currentIndex, isDeleting]);
-
-  useEffect(() => {
-    const cursorTimer = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-
-    return () => clearInterval(cursorTimer);
-  }, []);
+  const copyEmail = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <section
-      id="home"
-      className="min-h-screen pt-20 overflow-hidden relative flex items-center"
-      data-aos-duration="1000"
-      data-aos="fade-down"
-    >
-      {/* Particle Background */}
-      <ParticleBackground />
+    <section id="hero" className="relative min-h-[92vh] flex items-center pt-36 sm:pt-44 pb-20 sm:pb-28 overflow-hidden">
+      {/* Subtle Ambient Backlight Glow */}
+      <div className="absolute top-1/4 right-1/4 w-[750px] h-[650px] bg-gradient-to-tr from-blue-500/10 via-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center py-12">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white"
-                data-aos-delay="200"
-                data-aos="fade-down"
-              >
-                {homeData.title}
-              </h1>
-              <h2
-                className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-800 dark:text-white flex items-center"
-                data-aos-delay="400"
-                data-aos="fade-right"
-              >
-                <span className="typing-text bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-500">
-                  {currentText}
-                  <span
-                    className={`cursor ${
-                      showCursor ? "opacity-100" : "opacity-0"
-                    } transition-all duration-200`}
-                  >
-                    |
-                  </span>
-                </span>
-              </h2>
-            </div>
+      {/* Main Unified Stage Container */}
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 relative w-full">
+        
+        {/* ═══════════════════════════════════════════════════════
+            ATMOSPHERIC BACKGROUND PORTRAIT (Shifted Right, Underneath Text)
+           ═══════════════════════════════════════════════════════ */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] sm:w-[62%] md:w-[65%] lg:w-[68%] xl:w-[70%] h-[580px] sm:h-[680px] lg:h-[760px] pointer-events-none select-none z-0 flex items-center justify-end">
+          <div className="relative w-full h-full flex items-center justify-end">
+            {/* The Photo - Clearer, Brighter & Crisper */}
+            <img
+              src={personalInfo.profileImage}
+              alt={personalInfo.name}
+              className="w-full h-full object-cover object-[center_20%] filter contrast-[1.05] brightness-[1.08] opacity-100 dark:opacity-95 hero-overlay-portrait pointer-events-none"
+            />
 
-            <p
-              className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed max-w-lg"
-              data-aos-delay="500"
-              data-aos="fade-left"
-            >
-              {homeData.description}
-            </p>
-
-            <div
-              className="flex items-center space-x-4"
-              data-aos-delay="600"
-              data-aos="fade-down"
-            >
-              <span className="text-slate-700 dark:text-slate-300 font-medium">
-                Follow me on:
-              </span>
-              <div className="flex space-x-3">
-                {homeData.socialMedia.map((social, index) => (
-                  <Tippy content={social.platform} key={index} placement="top">
-                    <a
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-slate-100 text-slate-700 dark:bg-slate-900/60 dark:text-slate-300 rounded-full flex items-center justify-center border border-slate-200 dark:border-slate-800/80 hover:text-white hover:bg-blue-600 dark:hover:bg-indigo-600 dark:hover:text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                      aria-label={`Visit ${social.platform}`}
-                    >
-                      <i className={`${social.icon} text-lg`}></i>
-                    </a>
-                  </Tippy>
-                ))}
-              </div>
-            </div>
-
-            <div
-              className="flex flex-col sm:flex-row gap-4"
-              data-aos-delay="700"
-              data-aos="fade-down"
-            >
-              {homeData.buttons.map((btn, index) => (
-                <Tippy content={btn.label} key={index} placement="top">
-                  {btn.href && btn.href !== "#" ? (
-                    <a
-                      href={btn.href}
-                      className={`inline-flex items-center justify-center px-6 py-3 font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 ${
-                        btn.type === "primary"
-                          ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                          : "border border-slate-300 dark:border-slate-800 bg-white/60 dark:bg-white/5 backdrop-blur-md text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10"
-                      }`}
-                    >
-                      <i
-                        className={`bx ${
-                          btn.type === "primary" ? "bx-folder-open" : "bx-file-blank"
-                        } mr-2`}
-                      />
-                      {btn.label}
-                    </a>
-                  ) : (
-                    <button
-                      onClick={() =>
-                        Swal.fire({
-                          title: "Not Available Yet 😅",
-                          text: "This feature or file is not ready yet. Please check back later!",
-                          icon: "info",
-                          confirmButtonColor: "#3b82f6",
-                          confirmButtonText: "Alright",
-                        })
-                      }
-                      className={`inline-flex items-center justify-center px-6 py-3 font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 ${
-                        btn.type === "primary"
-                          ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                          : "border border-slate-300 dark:border-slate-800 bg-white/60 dark:bg-white/5 backdrop-blur-md text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10"
-                      }`}
-                      aria-label={btn.label}
-                    >
-                      <i
-                        className={`bx ${
-                          btn.type === "primary" ? "bx-folder-open" : "bx-file-blank"
-                        } mr-2`}
-                      />
-                      {btn.label}
-                    </button>
-                  )}
-                </Tippy>
-              ))}
-            </div>
-
-            {/* Quick Stats Heading */}
-            <div data-aos-delay="800" data-aos="fade-up">
-              <h4 className="flex items-center gap-2 text-sm font-semibold mb-3 text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                <i className="bx bx-bar-chart-alt text-base" />
-                Quick Stats:
-              </h4>
-
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {homeData.stats.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 bg-white/60 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/60 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md p-3 rounded-2xl"
-                  >
-                    <div className="text-slate-700 dark:text-slate-300">
-                      {item.isImage ? (
-                        <div className="w-8 h-8 bg-white/80 dark:bg-slate-800 rounded-full flex items-center justify-center p-1 shadow-sm">
-                          <img
-                            src={item.icon}
-                            alt={item.label}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                      ) : (
-                        <div className="w-8 h-8 bg-blue-50 dark:bg-indigo-950/40 rounded-full flex items-center justify-center">
-                          <i className={`${item.icon} text-lg`}></i>
-                        </div>
-                      )}
-                    </div>
-                    <div>
-                      <p className="font-bold text-slate-800 dark:text-white text-sm">
-                        {item.value}
-                      </p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
-                        {item.label}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="relative flex justify-center items-center"
-            data-aos-delay="400"
-            data-aos="fade-up"
-          >
-            {/* Glowing Backdrop behind Avatar */}
-            <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-blue-500/20 dark:bg-indigo-500/10 blur-[60px] animate-pulse"></div>
-
-            <div className="relative z-10">
-              <img
-                src={homeData.img}
-                alt="Khai Tran Profile"
-                className="w-64 h-64 sm:w-80 sm:h-80 lg:w-90 lg:h-90 object-cover rounded-full shadow-2xl dark:shadow-black/40 border-4 border-white/20 dark:border-slate-800/80 p-2 bg-white/10 dark:bg-slate-900/30 backdrop-blur-md hover:shadow-3xl hover:-translate-y-2 transition-all duration-500"
-              />
-            </div>
-
-            {homeData.floatingIcons.map((tech, index) => {
-              const positions = [
-                "top-0 left-16 sm:left-20",
-                "top-0 right-0",
-                "bottom-0 left-8 sm:left-10",
-                "bottom-8 sm:bottom-10 right-10 sm:right-12",
-              ];
-              return (
-                <Tippy
-                  key={index}
-                  content={tech.label}
-                  placement="top"
-                  animation="shift-away"
-                  delay={[0, 0]}
-                >
-                  <div
-                    className={`absolute ${
-                      positions[index % positions.length]
-                    } w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 rounded-full shadow-lg dark:shadow-black/30 flex items-center justify-center hover:scale-110 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-float cursor-pointer z-20`}
-                    style={{
-                      animationDelay: `${index * 0.5}s`,
-                    }}
-                  >
-                    <i className={`${tech.icon} text-xl sm:text-2xl`} style={{ color: tech.color }}></i>
-                  </div>
-                </Tippy>
-              );
-            })}
+            {/* Smooth Edge Feathering & Contrast Veils - Gentler, Lighter Fading */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAFA] via-[#FAFAFA]/50 via-25% to-transparent dark:from-[#000000] dark:via-[#000000]/45 dark:via-25% to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#FAFAFA] to-transparent dark:from-[#000000] dark:to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FAFAFA] to-transparent dark:from-[#000000] dark:to-transparent pointer-events-none" />
           </div>
         </div>
 
-        <style>{`
-          @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-8px);
-            }
-          }
-          .animate-float {
-            animation: float 4s ease-in-out infinite;
-          }
-          .shadow-3xl {
-            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
-          }
-          .dark .shadow-3xl {
-            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.6);
-          }
-          .typing-text {
-            display: inline-block;
-          }
-          .cursor {
-            font-weight: 600;
-            color: #2563eb;
-          }
-          .dark .cursor {
-            color: #818cf8;
-          }
-        `}</style>
+        {/* ═══════════════════════════════════════════════════════
+            FOREGROUND TYPOGRAPHY LAYER (Directly Overlapping Photo)
+           ═══════════════════════════════════════════════════════ */}
+        <InView>
+          <div className="relative z-10 max-w-2xl sm:max-w-3xl lg:max-w-3xl space-y-7">
+            
+            {/* Status Capsule */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-[#0A0A0E]/80 hairline-border shadow-xs backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span className="text-xs font-medium text-neutral-800 dark:text-neutral-200">
+                Available for Senior / Frontend Roles
+              </span>
+              <span className="text-[11px] font-mono text-neutral-400 dark:text-neutral-500 pl-1">
+                ICT (UTC+7)
+              </span>
+            </div>
+
+            {/* Monolithic Title & Identity - Boldly Extending Over Photo */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 text-xs font-mono text-neutral-500 uppercase tracking-widest">
+                <span className="text-neutral-900 dark:text-neutral-100 font-semibold">
+                  {personalInfo.name}
+                </span>
+                <span>·</span>
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  Software Engineer
+                </span>
+                <span>·</span>
+                <span className="flex items-center gap-1 text-emerald-500">
+                  <MapPin className="w-3 h-3" />
+                  HCMC
+                </span>
+              </div>
+
+              <h1 className="text-4xl sm:text-6xl lg:text-[4.25rem] font-semibold tracking-[-0.035em] text-neutral-900 dark:text-white leading-[1.05]">
+                Crafting high-precision interfaces &amp; resilient systems at scale.
+              </h1>
+            </div>
+
+            {/* Supporting Description Overlapping Image */}
+            <p className="text-base sm:text-lg text-neutral-700 dark:text-[#A1A1A6] leading-relaxed font-normal max-w-xl">
+              ~2 years of verified engineering practice across{" "}
+              <span className="text-neutral-900 dark:text-neutral-100 font-medium">
+                React 19, TypeScript, and distributed serverless runtimes
+              </span>
+              . Specialized in high-concurrency booking engines, edge WebSockets, and autonomous MCP developer tooling.
+            </p>
+
+            {/* Action Buttons Deck */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="#work"
+                className="px-6 py-3 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-black text-sm font-semibold hover:opacity-90 transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-2"
+              >
+                <span>Explore Flagships</span>
+                <ArrowDown className="w-3.5 h-3.5" />
+              </a>
+
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 rounded-full bg-white/80 dark:bg-[#0A0A0E]/80 backdrop-blur-md hairline-border text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all shadow-xs inline-flex items-center gap-1.5"
+              >
+                <FileText className="w-3.5 h-3.5 opacity-70" />
+                <span>Resume &amp; CV ↗</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={copyEmail}
+                className="px-4 py-3 rounded-full bg-white/80 dark:bg-[#0A0A0E]/80 backdrop-blur-md hairline-border text-xs font-mono text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all cursor-pointer shadow-xs inline-flex items-center gap-2"
+                title="Copy email to clipboard"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-500" />
+                    <span className="text-emerald-500 font-semibold">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5 opacity-60" />
+                    <span>{personalInfo.email}</span>
+                  </>
+                )}
+              </button>
+
+              <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400">
+                <a
+                  href={personalInfo.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                  aria-label="GitHub Profile"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+                <a
+                  href={personalInfo.links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Core Specialization Chips */}
+            <div className="pt-2">
+              <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mb-2">
+                Technical Core
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {coreSpecializations.map((item, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 text-xs font-mono rounded-md bg-white/70 dark:bg-white/5 backdrop-blur-md hairline-border text-neutral-700 dark:text-neutral-300 font-medium"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </InView>
       </div>
     </section>
   );
 };
 
-export default Home;
+export default Hero;

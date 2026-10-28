@@ -1,116 +1,184 @@
-import aboutData from "../data/aboutData.jsx";
-import Tippy from '@tippyjs/react';
-import Swal from 'sweetalert2';
+import { InView } from "./ui/in-view";
+import {
+  GraduationCap,
+  Award,
+  CheckCircle2,
+  Sparkles,
+  HeartHandshake,
+  ShieldCheck,
+  Zap,
+} from "lucide-react";
 
+const tenets = [
+  {
+    icon: Zap,
+    title: "Performance by Default",
+    desc: "Every network request, re-render, and compute task must justify its existence. 60fps main-thread responsiveness is non-negotiable.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Type Safety & Contracts",
+    desc: "Strict TypeScript and Zod schemas bridge frontend state with C#/.NET and Node.js DTOs, eliminating runtime surprises at boundary lines.",
+  },
+  {
+    icon: Sparkles,
+    title: "Design Engineer Craft",
+    desc: "Software should feel tactile and deliberate. Thoughtful micro-interactions, spring physics, and hairline contrast define elite products.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Pragmatic Agentic Velocity",
+    desc: "Leveraging MCP skills and autonomous AI tooling to accelerate team delivery from 2–3 to 5–9 tickets/week without compromising architectural rigor.",
+  },
+];
 
 const About = () => {
-    const resumeButtonClasses = `inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${aboutData.resume.type === "primary"
-        ? "bg-gray-800 dark:bg-white text-white dark:text-gray-800 hover:bg-gray-800 dark:hover:bg-gray-100"
-        : "border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800"
-        }`;
-
-    return (
-        <section
-            id="about"
-            className="min-h-screen pt-20 overflow-hidden"
-            data-aos="fade-down"
-            data-aos-duration="1000"
-        >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <header className="text-center text-gray-800 dark:text-white mb-12">
-                    <h2 className="text-5xl font-bold mb-2">{aboutData.title}</h2>
-                    <p className="text-lg text-gray-800 dark:text-white">{aboutData.subtitle}</p>
-                </header>
-
-                {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center py-12 min-h-[calc(100vh-5rem)]">
-                    {/* Profile Image */}
-                    <div className="w-full flex justify-center lg:justify-start" data-aos-delay="200" data-aos="fade-right">
-                        <img
-                            src={aboutData.image}
-                            alt="About Me"
-                            className="w-full max-w-md rounded-xl shadow-lg object-cover 
-             border-8 border-white dark:border-gray-800 
-             hover:shadow-3xl hover:-translate-y-2 
-             transition-all duration-300"
-                        />
-
-                    </div>
-
-                    {/* Biodata Section */}
-                    <div className="w-full text-gray-800 dark:text-white">
-                        {/* About Narrative - Two Columns */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8" data-aos-delay="200" data-aos="fade-down">
-                            <div className="flex flex-col gap-2">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <div className="w-12 h-12 p-4 flex items-center justify-center rounded-lg shadow-lg bg-gray-800 dark:bg-white dark:text-gray-800 text-white">
-                                        <i className={`bx ${aboutData.aboutNarrative.whoAmI.icon} text-xl`}></i>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">Who Am I</h3>
-                                </div>
-                                <p className="text-gray-700 dark:text-gray-300">
-                                    {aboutData.aboutNarrative.whoAmI.text}
-                                </p>
-                            </div>
-
-
-                            <div className="flex flex-col gap-2">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-800 p-4 dark:bg-white dark:text-gray-800 shadow-lg text-white">
-                                        <i className={`bx ${aboutData.aboutNarrative.approach.icon} text-xl`}></i>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">My Approach</h3>
-                                </div>
-                                <p className="text-gray-700 dark:text-gray-300">
-                                    {aboutData.aboutNarrative.approach.text}
-                                </p>
-                            </div>
-
-                        </div>
-                        {/* Personal Info Heading */}
-                        <div className="flex items-center gap-2 mb-4" data-aos-delay="200" data-aos="fade-down">
-                            <i className="bx bx-info-circle text-2xl text-gray-800 dark:text-white" aria-hidden="true"></i>
-                            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">Personal Info</h2>
-                        </div>
-
-                        {/* Biodata Grid - 2x2 Layout */}
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-lg mx-auto lg:mx-0" data-aos-delay="200" data-aos="fade-down">
-                            {aboutData.biodata.map((item, index) => (
-                                <li key={index} className="flex items-center gap-4">
-                                    <div className="flex items-center justify-center w-12 h-12 p-4 rounded-lg bg-gray-800 dark:bg-white dark:text-gray-800 shadow-lg text-white">
-                                        <i className={`${item.icon} text-xl`} aria-hidden="true"></i>
-                                    </div>
-                                    <div>
-                                        <span className="font-semibold text-sm text-gray-800 dark:text-white">{item.label}:</span>
-                                        <span className="text-sm text-gray-700 dark:text-gray-300"> {item.value}</span>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-
-
-
-                        <Tippy content="Download My Resume">
-                            <a
-                                href={aboutData.resume.href}
-                                className={resumeButtonClasses}
-                                aria-label="Download Resume"
-                                data-aos-delay="600"
-                                data-aos="fade-down"
-                                download="TranQuangKhai-Fullstack-Developer.html"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i className={`${aboutData.resume.icon} text-lg mr-2`} aria-hidden="true"></i>
-                                {aboutData.resume.label}
-                            </a>
-                        </Tippy>
-                    </div>
-                </div>
+  return (
+    <section id="about" className="relative py-28 sm:py-36">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <InView>
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="space-y-3 max-w-xl">
+              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+                Philosophy &amp; Credentials
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-neutral-900 dark:text-white">
+                Engineering Approach
+              </h2>
             </div>
-        </section>
-    );
+            <p className="text-base text-neutral-500 dark:text-[#86868B] max-w-md leading-relaxed">
+              At the intersection of design intuition, distributed edge architectures, and autonomous developer workflows.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left Narrative (7 cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#0A0A0E] hairline-border space-y-6 shadow-sm">
+                <h3 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+                  Fullstack Depth with Frontend Precision
+                </h3>
+
+                <div className="space-y-4 text-base text-neutral-600 dark:text-[#86868B] leading-relaxed font-normal">
+                  <p>
+                    I am a Software Engineer based in Ho Chi Minh City, completing my B.Sc. in Software Engineering at the{" "}
+                    <strong className="font-semibold text-neutral-900 dark:text-white">
+                      University of Information Technology (VNU-HCM)
+                    </strong>
+                    . Over the past ~2 years, my engineering practice has centered on building production applications that bridge high-fidelity frontend UX with reliable backend services.
+                  </p>
+                  <p>
+                    At{" "}
+                    <strong className="font-semibold text-neutral-900 dark:text-white">
+                      Tripdata Vietnam
+                    </strong>
+                    , I architect high-traffic travel booking systems — designing dynamic flight and hotel search engines, managing complex passenger state validation flows, and integrating C#/.NET RESTful endpoints. I believe performance is a core product feature, proven by cutting redundant API calls by ~30% through strict query caching and request cancellation.
+                  </p>
+                  <p>
+                    Beyond traditional web apps, I actively research and implement autonomous developer workflows. By authoring custom Model Context Protocol (MCP) servers and reusable agent skills, I help teams scale feature velocity without compromising architectural rigor or code quality.
+                  </p>
+                </div>
+
+                {/* 4 Tenets Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 hairline-t">
+                  {tenets.map((tenet, idx) => {
+                    const Icon = tenet.icon;
+                    return (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-2xl bg-neutral-50 dark:bg-black/40 hairline-border space-y-2"
+                      >
+                        <div className="flex items-center gap-2">
+                          <Icon className="w-4 h-4 text-emerald-500" />
+                          <span className="font-mono text-xs font-semibold text-neutral-900 dark:text-white">
+                            {tenet.title}
+                          </span>
+                        </div>
+                        <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                          {tenet.desc}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Academic & Impact Cards (5 cols) */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* University Credential Card */}
+              <div className="p-8 rounded-3xl bg-white dark:bg-[#0A0A0E] hairline-border space-y-5 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500">
+                    <GraduationCap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
+                      Academic Background
+                    </span>
+                    <h4 className="text-lg font-semibold text-neutral-900 dark:text-white">
+                      B.Sc. Software Engineering
+                    </h4>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-black/40 hairline-border space-y-2">
+                  <div className="text-sm font-semibold text-neutral-900 dark:text-white">
+                    University of Information Technology (UIT)
+                  </div>
+                  <div className="text-xs text-neutral-500">
+                    Vietnam National University, Ho Chi Minh City (VNU-HCM)
+                  </div>
+                  <div className="flex items-center justify-between text-xs font-mono pt-1 text-neutral-400">
+                    <span>2021 — 2026</span>
+                    <span className="text-emerald-500 font-semibold">Senior Candidate</span>
+                  </div>
+                </div>
+
+                <p className="text-xs text-neutral-500 dark:text-[#86868B] leading-relaxed">
+                  Rigorous foundational curriculum in distributed systems, algorithms, database normalization, and object-oriented software architecture.
+                </p>
+              </div>
+
+              {/* Work Availability & Location Card */}
+              <div className="p-8 rounded-3xl bg-white dark:bg-[#0A0A0E] hairline-border space-y-5 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
+                      Current Availability
+                    </span>
+                    <h4 className="text-lg font-semibold text-neutral-900 dark:text-white">
+                      Senior / Lead Frontend Roles
+                    </h4>
+                  </div>
+                </div>
+
+                <div className="space-y-2.5 text-xs text-neutral-600 dark:text-neutral-300">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                    <span>Target Roles: Frontend Engineer / Fullstack Developer</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                    <span>Location: Ho Chi Minh City, Vietnam (On-site / Hybrid / Remote)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                    <span>Timezone: UTC+7 (Flexible crossover with US/EU/APAC)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </InView>
+      </div>
+    </section>
+  );
 };
 
 export default About;

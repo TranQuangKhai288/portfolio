@@ -1,90 +1,73 @@
-import { createContext, useContext, useState, useRef, useEffect } from "react";
-
-const GalleryContext = createContext();
-
-export const useGallery = () => {
-  const context = useContext(GalleryContext);
-  if (!context) {
-    throw new Error("useGallery must be used within a GalleryProvider");
-  }
-  return context;
-};
+import { useState, useRef, useEffect, useCallback } from "react";
+import { GalleryContext } from "./useGallery";
 
 export const GalleryProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeImages, setActiveImages] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const galleryRef = useRef(null);
-  const scrollYRef = useRef(0);
 
-  const openGallery = (images = [], startIndex = 0) => {
+  const openGallery = useCallback((images = [], startIndex = 0) => {
+    if (!images || images.length === 0) return;
     setActiveImages(images);
     setActiveIndex(startIndex);
     setIsOpen(true);
-  };
+  }, []);
 
-  const closeGallery = () => {
+  const closeGallery = useCallback(() => {
     setIsOpen(false);
     setActiveImages([]);
     setActiveIndex(0);
-  };
+  }, []);
 
-  const next = () => {
+  const next = useCallback(() => {
     setActiveIndex((i) => Math.min(i + 1, activeImages.length - 1));
-  };
+  }, [activeImages.length]);
 
-  const prev = () => {
+  const prev = useCallback(() => {
     setActiveIndex((i) => Math.max(i - 1, 0));
-  };
+  }, []);
 
-  // Body scroll lock when modal is open (simple version - no position jumping)
+  // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
-      // Simply prevent scroll without changing position
       document.body.style.overflow = "hidden";
     } else {
-      // Restore scroll
       document.body.style.overflow = "";
     }
-
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  // Scroll active image into view in the horizontal gallery
+  // Scroll active thumbnail into view
   useEffect(() => {
     if (!galleryRef.current) return;
     const container = galleryRef.current;
     const child = container.children[activeIndex];
     if (child) {
-      const left =
-        child.offsetLeft - (container.clientWidth - child.clientWidth) / 2;
+      const left = child.offsetLeft - (container.clientWidth - child.clientWidth) / 2;
       container.scrollTo({ left, behavior: "smooth" });
     }
   }, [activeIndex]);
 
-  // Keyboard navigation
+  // Keyboard controls
   useEffect(() => {
     if (!isOpen) return;
 
     const handleKeyDown = (e) => {
-      switch (e.key) {
-        case "Escape":
-          closeGallery();
-          break;
-        case "ArrowLeft":
-          prev();
-          break;
-        case "ArrowRight":
-          next();
-          break;
+      if (e.key === "Escape") {
+        closeGallery();
+      } else if (e.key === "ArrowLeft") {
+        prev();
+      } else if (e.key === "ArrowRight") {
+        next();
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, activeIndex, activeImages.length]);
+  }, [isOpen, closeGallery, prev, next]);
 
   return (
     <GalleryContext.Provider
@@ -100,116 +83,91 @@ export const GalleryProvider = ({ children }) => {
     >
       {children}
 
-      {/* Global Modal Gallery */}
+      {/* Screenshot Lightbox Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-          <div className="relative max-w-6xl w-full bg-white dark:bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
-            {/* Close button */}
-            <button
-              aria-label="Close gallery"
-              onClick={closeGallery}
-              className="absolute top-4 right-4 z-30 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 rounded-full p-2 transition-all duration-200"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            {/* Navigation Controls */}
-            <button
-              onClick={prev}
-              disabled={activeIndex === 0}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 rounded-full p-3 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <svg
-                className="w-6 h-6 text-gray-700 dark:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-
-            <button
-              onClick={next}
-              disabled={activeIndex === activeImages.length - 1}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 rounded-full p-3 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <svg
-                className="w-6 h-6 text-gray-700 dark:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-
-            <div className="p-6">
-              {/* Main image display */}
-              <div className="h-72 md:h-96 lg:h-[500px] mb-6 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
-                <img
-                  src={activeImages[activeIndex]}
-                  alt={`Demo ${activeIndex + 1}`}
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
-
-              {/* Image counter */}
-              <div className="text-center mb-4">
-                <span className="text-sm text-gray-600 dark:text-gray-400">
-                  {activeIndex + 1} / {activeImages.length}
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image inspection gallery"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/85 backdrop-blur-md p-4 animate-in fade-in duration-150"
+        >
+          <div className="relative max-w-5xl w-full bg-white dark:bg-zinc-900 border border-black/[0.08] dark:border-white/[0.08] rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            
+            {/* Header bar */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-black/[0.06] dark:border-white/[0.06]">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span className="text-xs font-mono text-zinc-700 dark:text-zinc-300 font-medium">
+                  Verified Screenshot Inspection
+                </span>
+                <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 ml-2">
+                  [{activeIndex + 1} of {activeImages.length}]
                 </span>
               </div>
 
-              {/* Thumbnail strip */}
-              {activeImages.length > 1 && (
-                <div
-                  ref={galleryRef}
-                  className="flex gap-3 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 py-2 px-1"
-                  role="list"
-                >
-                  {activeImages.map((img, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveIndex(i)}
-                      className={`flex-none w-20 h-14 md:w-24 md:h-16 lg:w-32 lg:h-20 rounded overflow-hidden border-2 transition-all duration-200 ${
-                        i === activeIndex
-                          ? "border-blue-500 shadow-lg"
-                          : "border-transparent hover:border-gray-300 dark:hover:border-gray-600"
-                      }`}
-                    >
-                      <img
-                        src={img}
-                        alt={`Thumbnail ${i + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
+              <button
+                type="button"
+                aria-label="Close image viewer"
+                onClick={closeGallery}
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+              >
+                <i className="bx bx-x text-2xl" />
+              </button>
             </div>
+
+            {/* Main image viewer with side arrows */}
+            <div className="relative flex-1 flex items-center justify-center p-4 sm:p-6 bg-zinc-50 dark:bg-zinc-950/80 overflow-hidden">
+              <button
+                type="button"
+                onClick={prev}
+                disabled={activeIndex === 0}
+                aria-label="Previous screenshot"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/90 dark:bg-zinc-800/90 shadow-md border border-black/[0.08] dark:border-white/[0.08] text-zinc-800 dark:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:bg-zinc-100 dark:hover:bg-zinc-700"
+              >
+                <i className="bx bx-chevron-left text-2xl" />
+              </button>
+
+              <div className="max-h-[58vh] flex items-center justify-center">
+                <img
+                  src={activeImages[activeIndex]}
+                  alt={`Project capture ${activeIndex + 1}`}
+                  className="max-h-[58vh] max-w-full object-contain rounded-lg border border-black/[0.08] dark:border-white/[0.08]"
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={next}
+                disabled={activeIndex === activeImages.length - 1}
+                aria-label="Next screenshot"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/90 dark:bg-zinc-800/90 shadow-md border border-black/[0.08] dark:border-white/[0.08] text-zinc-800 dark:text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:bg-zinc-100 dark:hover:bg-zinc-700"
+              >
+                <i className="bx bx-chevron-right text-2xl" />
+              </button>
+            </div>
+
+            {/* Thumbnail carousel */}
+            {activeImages.length > 1 && (
+              <div
+                ref={galleryRef}
+                className="flex items-center gap-2 p-3 bg-white dark:bg-zinc-950 border-t border-black/[0.06] dark:border-white/[0.06] overflow-x-auto"
+              >
+                {activeImages.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveIndex(i)}
+                    className={`h-14 w-20 flex-shrink-0 rounded-md overflow-hidden border transition-all cursor-pointer ${
+                      i === activeIndex
+                        ? "border-emerald-500 ring-2 ring-emerald-500/20"
+                        : "border-black/[0.08] dark:border-white/[0.08] opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img src={img} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
+
           </div>
         </div>
       )}
