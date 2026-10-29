@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { personalInfo } from "../data/portfolioData";
+import { useCvModal } from "../contexts/CvContext";
 import { InView } from "./ui/in-view";
 import {
   ArrowDown,
@@ -22,6 +23,7 @@ const coreSpecializations = [
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
+  const { openCvModal } = useCvModal();
 
   const copyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -121,7 +123,12 @@ const Hero = () => {
                 href={personalInfo.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-full bg-white/80 dark:bg-[#0A0A0E]/80 backdrop-blur-md hairline-border text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all shadow-xs inline-flex items-center gap-1.5"
+                onContextMenu={(e) => {
+                  e.preventDefault();
+                  openCvModal();
+                }}
+                className="px-5 py-3 rounded-full bg-white/80 dark:bg-[#0A0A0E]/80 backdrop-blur-md hairline-border text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all shadow-xs inline-flex items-center gap-1.5 cursor-pointer"
+                title="Chuột trái: mở CV chính · Chuột phải: chọn các phiên bản CV"
               >
                 <FileText className="w-3.5 h-3.5 opacity-70" />
                 <span>Resume &amp; CV ↗</span>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { personalInfo } from "../data/portfolioData";
+import { useCvModal } from "../contexts/CvContext";
 import { Sun, Moon, ArrowUpRight, Menu, X, Command, Search, Sparkles } from "lucide-react";
 
 const navLinks = [
@@ -15,6 +16,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [cmdOpen, setCmdOpen] = useState(false);
+  const { openCvModal } = useCvModal();
 
   useEffect(() => {
     const root = document.documentElement;
@@ -119,7 +121,12 @@ const Navbar = () => {
               href={personalInfo.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition-all shadow-sm ml-1"
+              onContextMenu={(e) => {
+                e.preventDefault();
+                openCvModal();
+              }}
+              className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition-all shadow-sm ml-1 cursor-pointer"
+              title="Chuột trái: mở CV chính · Chuột phải: chọn các phiên bản CV"
             >
               <span>Resume</span>
               <ArrowUpRight className="w-3 h-3" />
@@ -229,16 +236,17 @@ const Navbar = () => {
               <div className="px-3 pt-3 pb-1 font-mono text-[10px] text-neutral-500 uppercase tracking-wider">
                 Quick Actions
               </div>
-              <a
-                href={personalInfo.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setCmdOpen(false)}
-                className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/10 transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  setCmdOpen(false);
+                  openCvModal();
+                }}
+                className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-left cursor-pointer"
               >
-                <span>Download Official Resume / CV</span>
+                <span>Select &amp; View All CV Profiles (Node.js / Fullstack / Frontend)</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400" />
-              </a>
+              </button>
               <a
                 href="mailto:dev.khaitran@gmail.com"
                 onClick={() => setCmdOpen(false)}

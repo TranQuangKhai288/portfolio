@@ -18,6 +18,45 @@ import ZenFlowLogin from "../assets/images/zenflow-login.png";
 import AiRagBanner from "../assets/images/ai-rag.png";
 import LapTechBanner from "../assets/images/laptech.png";
 
+export const cvVersions = [
+  {
+    id: "fullstack-nodejs",
+    title: "Fullstack Developer (React / Node.js)",
+    badge: "Mới · Target Vexere",
+    badgeColor: "emerald",
+    roleFocus: "ReactJS · NodeJS · REST API · Redis · Docker · Web Workers",
+    description:
+      "Tối ưu cho vị trí Fullstack tại Vexere. Nổi bật năng lực xây dựng REST API bằng Node.js/Express, caching với Redis, Docker, và xử lý dữ liệu lớn (Web Workers) trong domain đặt vé máy bay/khách sạn.",
+    htmlUrl: "/assets/TranQuangKhai-Fullstack-NodeJS.html",
+    pdfUrl: "/assets/TranQuangKhai-Fullstack-NodeJS.pdf",
+    isPrimary: true,
+  },
+  {
+    id: "fullstack-fe-focused",
+    title: "Fullstack Developer (Frontend-focused)",
+    badge: "Bản gốc",
+    badgeColor: "blue",
+    roleFocus: "Frontend-focused · TravelTech & AI Tooling",
+    description:
+      "Bản CV gốc cân bằng giữa thế mạnh Frontend React/Next.js/TypeScript và năng lực tích hợp hệ thống đa dịch vụ TravelTech Tripdata cùng AI Chatbot/Admin.",
+    htmlUrl: "/assets/TranQuangKhai-Fullstack-FE-Focused.html",
+    pdfUrl: "/assets/TranQuangKhai-Fullstack-FE-Focused.pdf",
+    isPrimary: false,
+  },
+  {
+    id: "frontend-developer",
+    title: "Frontend Developer (React, Next.js)",
+    badge: "Chuyên sâu UI/UX",
+    badgeColor: "amber",
+    roleFocus: "React · Next.js · TypeScript · Design Systems · Performance",
+    description:
+      "Dành riêng cho các vị trí chuyên sâu Frontend: kiến trúc component, state management nâng cao (TanStack Query, Zustand), tối ưu render và trải nghiệm UI/UX.",
+    htmlUrl: "/assets/TranQuangKhai-Front-end-Developer.html",
+    pdfUrl: "/assets/TranQuangKhai-Front-end-Developer.pdf",
+    isPrimary: false,
+  },
+];
+
 export const personalInfo = {
   name: "Tran Quang Khai",
   preferredName: "Khai Tran",
@@ -28,7 +67,7 @@ export const personalInfo = {
   location: "Thu Duc City, Ho Chi Minh City, Vietnam",
   email: "dev.khaitran@gmail.com",
   phone: "+84 389 346 149",
-  resumeUrl: "/assets/TranQuangKhai-Fullstack-FE-Focused.html",
+  resumeUrl: "/assets/TranQuangKhai-Fullstack-NodeJS.html",
   profileImage: "/assets/profile.jpg",
   qrisImage: "/assets/qris.jpg",
   links: {
