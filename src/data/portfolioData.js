@@ -24,9 +24,9 @@ export const cvVersions = [
     title: "Fullstack Developer (React / Node.js)",
     badge: "Mới · Target Vexere",
     badgeColor: "emerald",
-    roleFocus: "ReactJS · NodeJS · REST API · Redis · Docker · Web Workers",
+    roleFocus: "ReactJS · NodeJS · .NET · REST API · Redis · Docker · Booking Systems",
     description:
-      "Tối ưu cho vị trí Fullstack tại Vexere. Nổi bật năng lực xây dựng REST API bằng Node.js/Express, caching với Redis, Docker, và xử lý dữ liệu lớn (Web Workers) trong domain đặt vé máy bay/khách sạn.",
+      "Tối ưu cho vị trí Fullstack tại Vexere. Nổi bật năng lực xây dựng REST API bằng Node.js & .NET, caching với Redis, Docker, và xử lý dữ liệu lớn (Web Workers) trong domain đặt vé máy bay/khách sạn tại Tripdata.",
     htmlUrl: "/assets/TranQuangKhai-Fullstack-NodeJS.html",
     pdfUrl: "/assets/TranQuangKhai-Fullstack-NodeJS.pdf",
     isPrimary: true,
@@ -61,7 +61,8 @@ export const personalInfo = {
   name: "Tran Quang Khai",
   preferredName: "Khai Tran",
   role: "Fullstack Developer (Frontend-focused)",
-  tagline: "Building high-performance interfaces, serverless systems, and autonomous agent workflows.",
+  tagline:
+    "Building high-performance interfaces, serverless systems, and autonomous agent workflows.",
   summary:
     "Fullstack Developer with ~2 years of verified experience in React, Next.js, and TypeScript, backed by RESTful API and service integrations across C#/.NET and Node.js codebases. Experienced in AI systems — engineering LLM chatbots, multi-tenant prompt/workflow admin portals, and custom Model Context Protocol (MCP) & coding agent skill setups.",
   location: "Thu Duc City, Ho Chi Minh City, Vietnam",
@@ -82,10 +83,27 @@ export const personalInfo = {
     logo: "/assets/UIT.png",
   },
   keyMetrics: [
-    { label: "Engineering Practice", value: "~2 Years", detail: "Frontend & Fullstack Systems" },
-    { label: "API Query Optimization", value: "30%", detail: "Redundant call reduction via TanStack Query & abort signals" },
-    { label: "Team Velocity Scaling", value: "3x", detail: "Scaled weekly ticket delivery from 2–3 to 5–9 using MCP agent workflows" },
-    { label: "Production & Projects", value: "5+", detail: "B2B Travel, Cloudflare Serverless, WebRTC & AI RAG" },
+    {
+      label: "Engineering Practice",
+      value: "~2 Years",
+      detail: "Frontend & Fullstack Systems",
+    },
+    {
+      label: "API Query Optimization",
+      value: "30%",
+      detail: "Redundant call reduction via TanStack Query & abort signals",
+    },
+    {
+      label: "Team Velocity Scaling",
+      value: "3x",
+      detail:
+        "Scaled weekly ticket delivery from 2–3 to 5–9 using MCP agent workflows",
+    },
+    {
+      label: "Production & Projects",
+      value: "5+",
+      detail: "B2B Travel, Cloudflare Serverless, WebRTC & AI RAG",
+    },
   ],
 };
 
@@ -121,7 +139,8 @@ export const featuredProjects = [
           "Deployed the API layer on Cloudflare Workers using Hono framework and connected to Supabase via stateless HTTP/REST client rather than persistent TCP pooling, eliminating cold starts entirely.",
       },
       {
-        problem: "Automated Appointment Reminders Without Dedicated Background Servers",
+        problem:
+          "Automated Appointment Reminders Without Dedicated Background Servers",
         solution:
           "Configured Cloudflare Workers Cron Triggers running every 15 minutes to compute schedule availability and dispatch automated customer SMS via SpeedSMS integration.",
       },
@@ -132,10 +151,16 @@ export const featuredProjects = [
       },
     ],
     architecture: [
-      { layer: "Frontend", tech: "Next.js 15, React 19, Tailwind CSS v4, shadcn/ui" },
+      {
+        layer: "Frontend",
+        tech: "Next.js 15, React 19, Tailwind CSS v4, shadcn/ui",
+      },
       { layer: "Edge Backend", tech: "Cloudflare Workers, Hono Framework" },
       { layer: "Database", tech: "Supabase (PostgreSQL via REST client)" },
-      { layer: "Real-time & Cron", tech: "Pusher REST API, Web Crypto API, Workers Cron Triggers" },
+      {
+        layer: "Real-time & Cron",
+        tech: "Pusher REST API, Web Crypto API, Workers Cron Triggers",
+      },
     ],
     tags: [
       "Next.js 15",
@@ -193,8 +218,14 @@ export const featuredProjects = [
       },
     ],
     architecture: [
-      { layer: "Mobile Client", tech: "React Native (Expo), TypeScript, NativeWind, Reanimated" },
-      { layer: "Real-Time Backend", tech: "Node.js, Express, Socket.IO, PeerJS Server" },
+      {
+        layer: "Mobile Client",
+        tech: "React Native (Expo), TypeScript, NativeWind, Reanimated",
+      },
+      {
+        layer: "Real-Time Backend",
+        tech: "Node.js, Express, Socket.IO, PeerJS Server",
+      },
       { layer: "Media Streaming", tech: "Stream.io Video SDK (WebRTC)" },
       { layer: "Persistence", tech: "MongoDB" },
     ],
@@ -244,10 +275,22 @@ export const featuredProjects = [
       },
     ],
     architecture: [
-      { layer: "Chat Client & Admin", tech: "React, TypeScript, Ant Design, Refine" },
-      { layer: "Retrieval & Vectors", tech: "FastAPI, Node.js, MongoDB Vector Search, LlamaIndex" },
-      { layer: "LLM Orchestration", tech: "Gemini Flash, GPT-4o, Server-Sent Events (SSE)" },
-      { layer: "Enterprise Services", tech: "C# / .NET RESTful APIs, DTO Validation Schemas" },
+      {
+        layer: "Chat Client & Admin",
+        tech: "React, TypeScript, Ant Design, Refine",
+      },
+      {
+        layer: "Retrieval & Vectors",
+        tech: "FastAPI, Node.js, MongoDB Vector Search, LlamaIndex",
+      },
+      {
+        layer: "LLM Orchestration",
+        tech: "Gemini Flash, GPT-4o, Server-Sent Events (SSE)",
+      },
+      {
+        layer: "Enterprise Services",
+        tech: "C# / .NET RESTful APIs, DTO Validation Schemas",
+      },
     ],
     tags: [
       "React",
@@ -295,9 +338,15 @@ export const featuredProjects = [
       },
     ],
     architecture: [
-      { layer: "Frontend Engine", tech: "React JS, TypeScript, Vite, Tailwind CSS, Web Workers" },
+      {
+        layer: "Frontend Engine",
+        tech: "React JS, TypeScript, Vite, Tailwind CSS, Web Workers",
+      },
       { layer: "State & Cache", tech: "TanStack Query, Zustand" },
-      { layer: "Backend Integration", tech: "C# / .NET RESTful APIs, DTOs, Service Integration" },
+      {
+        layer: "Backend Integration",
+        tech: "C# / .NET RESTful APIs, DTOs, Service Integration",
+      },
       { layer: "Quality & Testing", tech: "Vitest, React Testing Library" },
     ],
     tags: [
@@ -341,7 +390,8 @@ export const aiLabHighlights = [
     description:
       "Authored a reusable internal skill library and custom MCP servers that enable autonomous coding agents to inspect Jira/Git tickets, comprehend project architectures, and write code strictly adhering to established design tokens and component standards.",
     badge: "Agentic Engineering",
-    impact: "Established consistent automated pull-request scaffolding across the engineering team.",
+    impact:
+      "Established consistent automated pull-request scaffolding across the engineering team.",
     codeSnippet: `// Custom MCP Server & Skill Schema
 {
   "name": "agent-ticket-executor",
@@ -356,7 +406,8 @@ export const aiLabHighlights = [
     description:
       "Benchmarked 4 leading LLMs across 50+ real-world flight search, booking extraction, and multi-tenant domain prompts to measure response accuracy, hallucinations, and token-to-first-byte latency ahead of customer rollout.",
     badge: "Empirical Evaluation",
-    impact: "Selected Gemini Flash for high-speed edge reasoning and GPT-4o for complex multi-step booking logic.",
+    impact:
+      "Selected Gemini Flash for high-speed edge reasoning and GPT-4o for complex multi-step booking logic.",
     codeSnippet: `// Benchmark Metrics Matrix
 Gemini Flash : 210ms TTFT | 98.4% flight parsing accuracy
 GPT-4o       : 420ms TTFT | 99.2% complex booking accuracy
@@ -369,7 +420,8 @@ GPT-3.5      : 390ms TTFT | 89.0% schema compliance`,
     description:
       "Proposed and led the adoption of agent-assisted engineering workflows across a 16-member team. Standardized prompt templates, component generation runbooks, and automated unit test authoring.",
     badge: "Process Innovation",
-    impact: "More than doubled weekly production feature delivery while reducing defect rates in code reviews.",
+    impact:
+      "More than doubled weekly production feature delivery while reducing defect rates in code reviews.",
     codeSnippet: `// Production Delivery Impact
 Team Size            : 16 engineers
 Baseline Delivery    : 2–3 tickets / week
@@ -396,7 +448,18 @@ export const experienceData = [
       "Engineered pixel-perfect responsive HTML/CSS flight ticket PDF templates for multi-agency ticketing exports.",
       "Co-developed an LLM flight inquiry chatbot with in-chat booking triggers, an AI Admin dashboard, and an internal MCP skill library for coding agents.",
     ],
-    tags: ["React JS", "TypeScript", "Tailwind CSS", "TanStack Query", "Zustand", "Vite", "C# / .NET", "Vitest", "Web Workers", "MCP"],
+    tags: [
+      "React JS",
+      "TypeScript",
+      "Tailwind CSS",
+      "TanStack Query",
+      "Zustand",
+      "Vite",
+      "C# / .NET",
+      "Vitest",
+      "Web Workers",
+      "MCP",
+    ],
   },
   {
     company: "Freelance Project",
@@ -412,7 +475,13 @@ export const experienceData = [
       "Managed global application and reservation state via Zustand for smooth, lag-free screen navigation.",
       "Integrated RESTful endpoints and Server-Sent Events (SSE) to deliver instant court booking confirmations and real-time activity alerts.",
     ],
-    tags: ["React Native CLI", "TypeScript", "Zustand", "RESTful API", "Server-Sent Events (SSE)"],
+    tags: [
+      "React Native CLI",
+      "TypeScript",
+      "Zustand",
+      "RESTful API",
+      "Server-Sent Events (SSE)",
+    ],
   },
   {
     company: "Tech JDI Vietnam",
@@ -430,7 +499,16 @@ export const experienceData = [
       "Developed a role-based HR management dashboard using Refine & Ant Design, translating intricate permission matrices into an intuitive interface.",
       "Optimized large-dataset rendering via pagination, useMemo memoization, and lazy loading for hierarchical records.",
     ],
-    tags: ["Refine", "TypeScript", "Ant Design", "Node.js", "FastAPI", "MongoDB", "RAG Pipeline", "SSE"],
+    tags: [
+      "Refine",
+      "TypeScript",
+      "Ant Design",
+      "Node.js",
+      "FastAPI",
+      "MongoDB",
+      "RAG Pipeline",
+      "SSE",
+    ],
   },
 ];
 
@@ -438,7 +516,8 @@ export const skillsMatrix = [
   {
     category: "FRONTEND",
     icon: "bx bx-code-block",
-    description: "Core interfaces, modern rendering pipelines, and type-safe systems",
+    description:
+      "Core interfaces, modern rendering pipelines, and type-safe systems",
     skills: [
       { name: "React JS", level: "Production" },
       { name: "Next.js 15", level: "Production" },
@@ -452,7 +531,8 @@ export const skillsMatrix = [
   {
     category: "UI / STYLING",
     icon: "bx bx-palette",
-    description: "High-craft design engineer aesthetics, atomic design & design tokens",
+    description:
+      "High-craft design engineer aesthetics, atomic design & design tokens",
     skills: [
       { name: "Tailwind CSS v4", level: "Production" },
       { name: "shadcn/ui", level: "Production" },
@@ -464,7 +544,8 @@ export const skillsMatrix = [
   {
     category: "STATE / FORM & TESTING",
     icon: "bx bx-check-shield",
-    description: "Predictable client caching, schema validation, and unit verification",
+    description:
+      "Predictable client caching, schema validation, and unit verification",
     skills: [
       { name: "TanStack Query", level: "Production" },
       { name: "Zustand", level: "Production" },
@@ -479,7 +560,8 @@ export const skillsMatrix = [
   {
     category: "BACKEND (WORKING KNOWLEDGE)",
     icon: "bx bx-server",
-    description: "Service integrations, edge runtimes, real-time channels & typed DTOs",
+    description:
+      "Service integrations, edge runtimes, real-time channels & typed DTOs",
     skills: [
       { name: "C# / .NET", level: "Production" },
       { name: "Node.js / Express.js", level: "Production" },
@@ -493,7 +575,8 @@ export const skillsMatrix = [
   {
     category: "DATABASE & DEVOPS",
     icon: "bx bx-data",
-    description: "Relational, document, and cache storage with container workflows",
+    description:
+      "Relational, document, and cache storage with container workflows",
     skills: [
       { name: "PostgreSQL", level: "Applied" },
       { name: "MongoDB", level: "Production" },
@@ -506,7 +589,8 @@ export const skillsMatrix = [
   {
     category: "AI INTEGRATION & WORKFLOW",
     icon: "bx bx-bot",
-    description: "Enterprise RAG pipelines, agentic coding skills, and MCP orchestration",
+    description:
+      "Enterprise RAG pipelines, agentic coding skills, and MCP orchestration",
     skills: [
       { name: "LLM Chatbot (RAG)", level: "Production" },
       { name: "Multi-tenant Prompt/AI Admin Tooling", level: "Production" },
@@ -526,4 +610,3 @@ export const navigationItems = [
   { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
 ];
-

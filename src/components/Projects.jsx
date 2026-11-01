@@ -103,12 +103,12 @@ const Projects = () => {
               </h2>
             </div>
             <p className="text-base text-neutral-500 dark:text-[#86868B] max-w-md leading-relaxed">
-              Production-tested distributed platforms, edge serverless runtimes, and real-time state synchronization engines.
+              Production-tested distributed platforms, edge serverless runtimes,
+              and real-time state synchronization engines.
             </p>
           </div>
 
           <div className="space-y-36">
-            
             {/* ═══════════════════════════════════════════════════════
                 FLAGSHIP 01: ZENFLOW SPA PLATFORM
                ═══════════════════════════════════════════════════════ */}
@@ -117,22 +117,32 @@ const Projects = () => {
                 <div className="lg:col-span-7 space-y-4">
                   <div className="flex items-center gap-2 text-xs font-mono">
                     <span className="text-neutral-400">05/2026 — Present</span>
-                    <span className="text-neutral-300 dark:text-neutral-700">·</span>
-                    <span className="text-emerald-500 font-semibold">Live Production</span>
-                    <span className="text-neutral-300 dark:text-neutral-700">·</span>
-                    <span className="text-blue-500">Cloudflare Edge &amp; Next.js 15</span>
+                    <span className="text-neutral-300 dark:text-neutral-700">
+                      ·
+                    </span>
+                    <span className="text-emerald-500 font-semibold">
+                      Live Production
+                    </span>
+                    <span className="text-neutral-300 dark:text-neutral-700">
+                      ·
+                    </span>
+                    <span className="text-blue-500">
+                      Cloudflare Edge &amp; Next.js 15
+                    </span>
                   </div>
                   <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-neutral-900 dark:text-white">
                     ZenFlow Spa Management Engine
                   </h3>
                   <p className="text-base sm:text-lg text-neutral-600 dark:text-[#86868B] leading-relaxed max-w-2xl">
-                    High-throughput spa scheduling ecosystem solving multi-branch booking conflicts via Redis atomic mutex locks, HMAC webhook security, and instant WebSocket state mesh.
+                    High-throughput spa scheduling ecosystem solving
+                    multi-branch booking conflicts via Redis atomic mutex locks,
+                    HMAC webhook security, and instant WebSocket state mesh.
                   </p>
                 </div>
 
                 <div className="lg:col-span-5 flex lg:justify-end gap-3 flex-wrap">
                   <a
-                    href="https://zenflow-spa.pages.dev/"
+                    href="https://spa-sme-fe.pages.dev/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-5 py-2.5 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-black text-xs font-semibold hover:opacity-90 transition-all shadow-md inline-flex items-center gap-1.5"
@@ -226,7 +236,10 @@ const Projects = () => {
                     {/* Screenshot Preview with Smooth Falloff */}
                     <div className="relative rounded-2xl overflow-hidden hairline-border bg-black/60 shadow-2xl">
                       <img
-                        src={zenflowTabs.find((t) => t.id === zenflowTab)?.image || ZenFlowBooking}
+                        src={
+                          zenflowTabs.find((t) => t.id === zenflowTab)?.image ||
+                          ZenFlowBooking
+                        }
                         alt="ZenFlow Platform Screen"
                         className="w-full h-auto object-cover max-h-[500px]"
                       />
@@ -237,7 +250,10 @@ const Projects = () => {
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                         <div className="text-xs font-medium text-white flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-blue-400" />
-                          <span>Interactive Slot Booking Test (Click to test Redis mutex lock)</span>
+                          <span>
+                            Interactive Slot Booking Test (Click to test Redis
+                            mutex lock)
+                          </span>
                         </div>
                         <span className="text-xs font-mono text-emerald-400">
                           {selectedSlot
@@ -252,13 +268,17 @@ const Projects = () => {
                             key={idx}
                             type="button"
                             disabled={!slot.available}
-                            onClick={() => setSelectedSlot(selectedSlot === slot.time ? null : slot.time)}
+                            onClick={() =>
+                              setSelectedSlot(
+                                selectedSlot === slot.time ? null : slot.time,
+                              )
+                            }
                             className={`py-2.5 rounded-xl text-xs font-mono transition-all text-center cursor-pointer ${
                               !slot.available
                                 ? "bg-white/5 border border-white/5 text-neutral-600 cursor-not-allowed"
                                 : selectedSlot === slot.time
-                                ? "bg-blue-600 text-white font-semibold border border-blue-400 shadow-md scale-102"
-                                : "bg-white/5 hairline-border text-neutral-300 hover:border-blue-400/50 hover:text-white"
+                                  ? "bg-blue-600 text-white font-semibold border border-blue-400 shadow-md scale-102"
+                                  : "bg-white/5 hairline-border text-neutral-300 hover:border-blue-400/50 hover:text-white"
                             }`}
                           >
                             {slot.time} {!slot.available && "(Held)"}
@@ -284,31 +304,63 @@ const Projects = () => {
 
                     {/* Protocol Handler Snippet */}
                     <div className="p-4 sm:p-5 rounded-2xl bg-black/80 hairline-border font-mono text-xs text-neutral-300 space-y-2 overflow-x-auto">
-                      <div className="text-neutral-500">// Edge Atomic Concurrency Lock Handler</div>
+                      <div className="text-neutral-500">
+                        // Edge Atomic Concurrency Lock Handler
+                      </div>
                       <div>
-                        <span className="text-purple-400">export async function</span>{" "}
-                        <span className="text-blue-400">acquireReservationSlot</span>(c: Context) &#123;
+                        <span className="text-purple-400">
+                          export async function
+                        </span>{" "}
+                        <span className="text-blue-400">
+                          acquireReservationSlot
+                        </span>
+                        (c: Context) &#123;
                       </div>
                       <div className="pl-4">
-                        <span className="text-purple-400">const</span> &#123; slotId, technicianId, customerId &#125; = <span className="text-purple-400">await</span> c.req.json();
+                        <span className="text-purple-400">const</span> &#123;
+                        slotId, technicianId, customerId &#125; ={" "}
+                        <span className="text-purple-400">await</span>{" "}
+                        c.req.json();
                       </div>
                       <div className="pl-4">
-                        <span className="text-purple-400">const</span> lockKey = <span className="text-amber-300">`lock:slot:$&#123;slotId&#125;:$&#123;technicianId&#125;`</span>;
+                        <span className="text-purple-400">const</span> lockKey ={" "}
+                        <span className="text-amber-300">
+                          `lock:slot:$&#123;slotId&#125;:$&#123;technicianId&#125;`
+                        </span>
+                        ;
                       </div>
                       <div className="pl-4">
-                        <span className="text-neutral-500">// Distributed Mutex: SET key val NX EX 300</span>
+                        <span className="text-neutral-500">
+                          // Distributed Mutex: SET key val NX EX 300
+                        </span>
                       </div>
                       <div className="pl-4">
-                        <span className="text-purple-400">const</span> acquired = <span className="text-purple-400">await</span> redis.set(lockKey, customerId, <span className="text-emerald-300">"NX"</span>, <span className="text-emerald-300">"EX"</span>, 300);
+                        <span className="text-purple-400">const</span> acquired
+                        = <span className="text-purple-400">await</span>{" "}
+                        redis.set(lockKey, customerId,{" "}
+                        <span className="text-emerald-300">"NX"</span>,{" "}
+                        <span className="text-emerald-300">"EX"</span>, 300);
                       </div>
                       <div className="pl-4">
-                        <span className="text-purple-400">if</span> (!acquired) <span className="text-purple-400">return</span> c.json(&#123; error: <span className="text-red-400">"SLOT_LOCKED_CONCURRENTLY"</span> &#125;, 409);
+                        <span className="text-purple-400">if</span> (!acquired){" "}
+                        <span className="text-purple-400">return</span>{" "}
+                        c.json(&#123; error:{" "}
+                        <span className="text-red-400">
+                          "SLOT_LOCKED_CONCURRENTLY"
+                        </span>{" "}
+                        &#125;, 409);
                       </div>
                       <div className="pl-4">
-                        <span className="text-purple-400">await</span> broadcastWebSocket(&#123; event: <span className="text-emerald-300">"SLOT_HELD"</span>, slotId &#125;);
+                        <span className="text-purple-400">await</span>{" "}
+                        broadcastWebSocket(&#123; event:{" "}
+                        <span className="text-emerald-300">"SLOT_HELD"</span>,
+                        slotId &#125;);
                       </div>
                       <div className="pl-4">
-                        <span className="text-purple-400">return</span> c.json(&#123; success: <span className="text-emerald-400">true</span>, ttl: 300 &#125;);
+                        <span className="text-purple-400">return</span>{" "}
+                        c.json(&#123; success:{" "}
+                        <span className="text-emerald-400">true</span>, ttl: 300
+                        &#125;);
                       </div>
                       <div>&#125;</div>
                     </div>
@@ -319,25 +371,33 @@ const Projects = () => {
               {/* Apple Tech Specs Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-4 hairline-t">
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Architecture</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Architecture
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     Event-Driven Edge REST + WS
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Frontend Engine</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Frontend Engine
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     Next.js 15 · React 19 · Tailwind 4
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Edge Serverless</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Edge Serverless
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     Cloudflare Workers · Hono · HMAC
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Cache &amp; Lock</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Cache &amp; Lock
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     Redis Mutex · Supabase PostgreSQL
                   </div>
@@ -353,16 +413,26 @@ const Projects = () => {
                 <div className="lg:col-span-7 space-y-4">
                   <div className="flex items-center gap-2 text-xs font-mono">
                     <span className="text-neutral-400">01/2026 — 05/2026</span>
-                    <span className="text-neutral-300 dark:text-neutral-700">·</span>
-                    <span className="text-emerald-500 font-semibold">Completed Production</span>
-                    <span className="text-neutral-300 dark:text-neutral-700">·</span>
-                    <span className="text-purple-500">Cloudflare Workers &amp; WebSockets</span>
+                    <span className="text-neutral-300 dark:text-neutral-700">
+                      ·
+                    </span>
+                    <span className="text-emerald-500 font-semibold">
+                      Completed Production
+                    </span>
+                    <span className="text-neutral-300 dark:text-neutral-700">
+                      ·
+                    </span>
+                    <span className="text-purple-500">
+                      Cloudflare Workers &amp; WebSockets
+                    </span>
                   </div>
                   <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-neutral-900 dark:text-white">
                     Cupid Real-Time Dating Platform
                   </h3>
                   <p className="text-base sm:text-lg text-neutral-600 dark:text-[#86868B] leading-relaxed max-w-2xl">
-                    High-engagement social discovery app engineered on Cloudflare edge serverless. Sub-50ms geolocation matching, encrypted live messaging, and fluid swipe deck physics.
+                    High-engagement social discovery app engineered on
+                    Cloudflare edge serverless. Sub-50ms geolocation matching,
+                    encrypted live messaging, and fluid swipe deck physics.
                   </p>
                 </div>
 
@@ -450,7 +520,10 @@ const Projects = () => {
 
                     <div className="relative rounded-2xl overflow-hidden hairline-border bg-black/60 shadow-2xl">
                       <img
-                        src={cupidTabs.find((t) => t.id === cupidTab)?.image || CupidMatch}
+                        src={
+                          cupidTabs.find((t) => t.id === cupidTab)?.image ||
+                          CupidMatch
+                        }
                         alt="Cupid Platform Screen"
                         className="w-full h-auto object-cover max-h-[500px]"
                       />
@@ -462,7 +535,9 @@ const Projects = () => {
                       <span className="text-purple-400 font-semibold">
                         // SERVERLESS EDGE TOPOLOGY & WEBSOCKET DISPATCH
                       </span>
-                      <span>CLOUDFLARE WORKERS · DURABLE OBJECTS · POSTGRESQL</span>
+                      <span>
+                        CLOUDFLARE WORKERS · DURABLE OBJECTS · POSTGRESQL
+                      </span>
                     </div>
                     <CupidArchitectureDiagram />
                   </div>
@@ -472,25 +547,33 @@ const Projects = () => {
               {/* Tech Specs */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-4 hairline-t">
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Edge Compute</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Edge Compute
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     Cloudflare Pages &amp; Workers
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Real-Time Transport</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Real-Time Transport
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     Durable Objects + WebSockets
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Motion Physics</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Motion Physics
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     Motion 14 Swipe Deck
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Persistence</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Persistence
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     PostgreSQL · Drizzle ORM
                   </div>
@@ -505,17 +588,30 @@ const Projects = () => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
                 <div className="lg:col-span-7 space-y-4">
                   <div className="flex items-center gap-2 text-xs font-mono">
-                    <span className="text-neutral-400">Production Experience</span>
-                    <span className="text-neutral-300 dark:text-neutral-700">·</span>
-                    <span className="text-amber-500 font-semibold">Enterprise Traveltech</span>
-                    <span className="text-neutral-300 dark:text-neutral-700">·</span>
-                    <span className="text-blue-500">React · Next.js · C# / .NET API</span>
+                    <span className="text-neutral-400">
+                      Production Experience
+                    </span>
+                    <span className="text-neutral-300 dark:text-neutral-700">
+                      ·
+                    </span>
+                    <span className="text-amber-500 font-semibold">
+                      Enterprise Traveltech
+                    </span>
+                    <span className="text-neutral-300 dark:text-neutral-700">
+                      ·
+                    </span>
+                    <span className="text-blue-500">
+                      React · Next.js · C# / .NET API
+                    </span>
                   </div>
                   <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-neutral-900 dark:text-white">
                     Tripdata Vietnam B2B Platform
                   </h3>
                   <p className="text-base sm:text-lg text-neutral-600 dark:text-[#86868B] leading-relaxed max-w-2xl">
-                    Dynamic flight and hotel reservation platform. Engineered complex multi-step passenger validation flows, cut redundant API calls by ~30% with TanStack Query abort signals, and maintained 60fps main-thread responsiveness.
+                    Dynamic flight and hotel reservation platform. Engineered
+                    complex multi-step passenger validation flows, cut redundant
+                    API calls by ~30% with TanStack Query abort signals, and
+                    maintained 60fps main-thread responsiveness.
                   </p>
                 </div>
 
@@ -532,7 +628,9 @@ const Projects = () => {
                   <span className="text-amber-400 font-semibold">
                     // HIGH-FREQUENCY QUERY CACHING & C#/.NET REST INTEGRATION
                   </span>
-                  <span>TANSTACK QUERY · ABORT SIGNALS · REDUNDANCY REDUCTION</span>
+                  <span>
+                    TANSTACK QUERY · ABORT SIGNALS · REDUNDANCY REDUCTION
+                  </span>
                 </div>
                 <TripdataArchitectureDiagram />
               </div>
@@ -540,32 +638,39 @@ const Projects = () => {
               {/* Tech Specs */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-4 hairline-t">
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">API Call Optimization</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    API Call Optimization
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     -30% Redundant Calls
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">Backend Services</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    Backend Services
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     C# / .NET Core Microservices
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">State Management</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    State Management
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     Zustand + TanStack Query
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">UI Responsiveness</div>
+                  <div className="text-xs text-neutral-500 dark:text-[#86868B]">
+                    UI Responsiveness
+                  </div>
                   <div className="text-sm font-medium text-neutral-900 dark:text-white pt-1">
                     60fps Main-Thread Strict
                   </div>
                 </div>
               </div>
             </article>
-
           </div>
 
           {/* Archive / Additional Projects Section */}
@@ -575,8 +680,16 @@ const Projects = () => {
               onClick={() => setShowArchive(!showArchive)}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-[#0A0A0E] hairline-border text-xs font-mono font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all cursor-pointer shadow-xs"
             >
-              <span>{showArchive ? "Hide Archive Systems" : "View Selected Archive Systems (AI RAG & LapTech)"}</span>
-              {showArchive ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              <span>
+                {showArchive
+                  ? "Hide Archive Systems"
+                  : "View Selected Archive Systems (AI RAG & LapTech)"}
+              </span>
+              {showArchive ? (
+                <ChevronUp className="w-4 h-4" />
+              ) : (
+                <ChevronDown className="w-4 h-4" />
+              )}
             </button>
 
             {showArchive && (
